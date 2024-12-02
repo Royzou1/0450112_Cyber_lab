@@ -1,9 +1,9 @@
 #include "utility.h"
 
 // TODO: Uncomment the following lines and fill in the correct size
-//#define L1_SIZE [TODO]
-//#define L2_SIZE [TODO]
-//#define L3_SIZE [TODO]
+#define L1_SIZE 32768
+#define L2_SIZE 1310720
+#define L3_SIZE 12582912
  
 int main (int ac, char **av) {
 
@@ -17,7 +17,7 @@ int main (int ac, char **av) {
     // A temporary variable we can use to load addresses
     // The volatile keyword tells the compiler to not put this variable into a
     // register- it should always try to load from memory/ cache.
-    volatile char tmp;
+    volatile uint64_t tmp;
 
     // Allocate a buffer of 64 Bytes
     // the size of an unsigned integer (uint64_t) is 8 Bytes
@@ -31,7 +31,7 @@ int main (int ac, char **av) {
 
     // [1.2] TODO: Uncomment the following line to allocate a buffer of a size
     // of your chosing. This will help you measure the latencies at L2 and L3.
-    //uint64_t *eviction_buffer = (uint64_t)malloc(TODO);
+    uint64_t *eviction_buffer = (uint64_t*)malloc(sizeof(uint8_t)*(L1_SIZE + L2_SIZE));
 
     // Example: Measure L1 access latency, store results in l1_latency array
     for (int i=0; i<SAMPLES; i++){
@@ -46,16 +46,36 @@ int main (int ac, char **av) {
     // [1.2] TODO: Measure DRAM Latency, store results in dram_latency array
     // ======
     //
-
+    for (int i = 0 ; i < SAMPLES ; i++) {
+        clflush(target_buffer);
+        dram_latency = measure_one_block_access_time((uint64_t)(target_buffer));
+    }
+    
     // ======
     // [1.2] TODO: Measure L2 Latency, store results in l2_latency array
     // ======
     //
+    for (int i = 0; i < SAMPLES ; ++i) {
+        tmp += target_buffer[0];
+        for (int j = 0 ; j < L1_SIZE / 8 ; j++) {
+            eviction_buffer[j] = j;
+            tmp += eviction_buffer[j];
+        }
+        l2_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer));
+    }
 
     // ======
     // [1.2] TODO: Measure L3 Latency, store results in l3_latency array
     // ======
     //
+    for (int i = 0; i < SAMPLES ; ++i) {
+        tmp += target_buffer[0];
+        for (int j = 0 ; j < (L1_SIZE + L2_SIZE) / 8 ; j++) {
+            eviction_buffer[j] = j;
+            tmp += eviction_buffer[j];
+        }
+        l3_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer));
+    }
 
 
     // Print the results to the screen

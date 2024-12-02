@@ -1,6 +1,6 @@
 // Duration of your trace, in milliseconds
 let Cache_line_elem = 8;
-let TRACE_LENGTH = 2621440; // 20MB/64B
+let TRACE_LENGTH = 1048576; // 8MB/8B
 let ARR_SIZE = 100;
 
 // Array of length TRACE_LENGTH with your trace's values
@@ -12,7 +12,7 @@ let start;
 function record() {
   // Create empty array for saving trace values
   let P = 500;
-  let N = 327680;
+  let N = 131072;
   T = new Array(TRACE_LENGTH);
   let result = new Array(ARR_SIZE);
 
