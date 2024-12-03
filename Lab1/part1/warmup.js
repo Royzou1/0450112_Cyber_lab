@@ -1,5 +1,5 @@
 const runs = 10;
-const N = 100000;
+const N = 1000000;
 
 function measureOneLine() {
   const LINE_SIZE = 16; // 64/sizeof(int)
@@ -21,14 +21,16 @@ function measureOneLine() {
 function measureNLines() {
   let result = [];
   const LINE_SIZE = 16; // 64/sizeof(int)
-  let array_size = 10000 * LINE_SIZE;
+  let array_size = N * LINE_SIZE;
   const M = new Array(array_size).fill(-1);
 
-  for (let j = 0; j < 10; j++) {
+  for (let j = 0; j < runs; j++) {
     const start = performance.now();
     for (let i = 0; i < N; i++) {
       let val = M[(j*(LINE_SIZE* N) + i * LINE_SIZE) % (array_size)];
     }
+    let val = M[j * LINE_SIZE];
+
     const end = performance.now();
     result.push(end - start);
   }
@@ -39,6 +41,8 @@ document.getElementById(
   "exercise1-values"
 ).innerText = `1 Cache Line: [${measureOneLine().join(", ")}]`;
 
+
 document.getElementById(
   "exercise2-values"
 ).innerText = `N Cache Lines: [${measureNLines().join(", ")}]`;
+

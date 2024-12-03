@@ -1,7 +1,7 @@
 // Duration of your trace, in milliseconds
 let Cache_line_elem = 8;
 let TRACE_LENGTH = 1048576; // 8MB/8B
-let ARR_SIZE = 100;
+let ARR_SIZE = 10;
 
 // Array of length TRACE_LENGTH with your trace's values
 let T;
@@ -11,28 +11,27 @@ let start;
 
 function record() {
   // Create empty array for saving trace values
-  let P = 500;
+  let P = 5000;
   let N = 131072;
-  T = new Array(TRACE_LENGTH);
+  T = new Array(TRACE_LENGTH).fill(-1);
   let result = new Array(ARR_SIZE);
 
   // Fill array with -1 so we can be sure memory is allocated
   result.fill(0, 0, result.length);
-  T.fill(-1, 0, T.length);
-
 
   // Save start timestamp
   let count = 0 ;
   let end;
   for (let j = 0; j < ARR_SIZE; ++j) {
+    console.log(j)
     count = 0;
     start = performance.now();
     end = start;
     while ( (end - start) < P) {
-      for (i=0; i < N; ++i) {
-        let tmp = T[i*Cache_line_elem];
+      for (i=0; i < (TRACE_LENGTH/Cache_line_elem); i+=8) {
+        let tmp = T[i];
       }
-      count++;
+      count = count + 1;
       end = performance.now();
     }
     result[j] = count;
