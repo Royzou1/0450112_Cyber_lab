@@ -1,19 +1,27 @@
 #include "utility.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 // TODO: Uncomment the following lines and fill in the correct size
 #define L1_SIZE 32768
-#define L2_SIZE 1310720
+#define L2_SIZE 262144
 #define L3_SIZE 12582912
  
 int main (int ac, char **av) {
-
+    int tmp1 = 0;
+    for (int i = 0 ; i < 10000000 ; i++) {
+        tmp1 += rand();
+    }
+    printf("%d\n", tmp1);
+    
     // create 4 arrays to store the latency numbers
     // the arrays are initialized to 0
     uint64_t dram_latency[SAMPLES] = {0};
     uint64_t l1_latency[SAMPLES] = {0};
     uint64_t l2_latency[SAMPLES] = {0};
     uint64_t l3_latency[SAMPLES] = {0};
-
+    srand(time(0));
     // A temporary variable we can use to load addresses
     // The volatile keyword tells the compiler to not put this variable into a
     // register- it should always try to load from memory/ cache.
@@ -22,7 +30,7 @@ int main (int ac, char **av) {
     // Allocate a buffer of 64 Bytes
     // the size of an unsigned integer (uint64_t) is 8 Bytes
     // Therefore, we request 8 * 8 Bytes
-    uint64_t *target_buffer = (uint64_t *)malloc(8*sizeof(uint64_t));
+    uint64_t *target_buffer = (uint64_t *)malloc(2*L3_SIZE*sizeof(uint8_t));
 
     if (NULL == target_buffer) {
         perror("Unable to malloc");
@@ -47,8 +55,9 @@ int main (int ac, char **av) {
     // ======
     //
     for (int i = 0 ; i < SAMPLES ; i++) {
-        clflush(target_buffer);
-        dram_latency = measure_one_block_access_time((uint64_t)(target_buffer));
+        int rand = random() % ((2*L3_SIZE) / 8);
+        clflush(target_buffer + rand);
+        dram_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
     
     // ======
@@ -56,12 +65,13 @@ int main (int ac, char **av) {
     // ======
     //
     for (int i = 0; i < SAMPLES ; ++i) {
-        tmp += target_buffer[0];
+        int rand = random() % ((2*L3_SIZE) / 8);
+        tmp += target_buffer[rand];
         for (int j = 0 ; j < L1_SIZE / 8 ; j++) {
             eviction_buffer[j] = j;
             tmp += eviction_buffer[j];
         }
-        l2_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer));
+        l2_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
 
     // ======
@@ -69,12 +79,13 @@ int main (int ac, char **av) {
     // ======
     //
     for (int i = 0; i < SAMPLES ; ++i) {
-        tmp += target_buffer[0];
+        int rand = random() % ((2*L3_SIZE) / 8);
+        tmp += target_buffer[rand];
         for (int j = 0 ; j < (L1_SIZE + L2_SIZE) / 8 ; j++) {
             eviction_buffer[j] = j;
             tmp += eviction_buffer[j];
         }
-        l3_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer));
+        l3_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
 
 
@@ -86,7 +97,7 @@ int main (int ac, char **av) {
     free(target_buffer);
 
     // [1.2] TODO: Uncomment this line once you uncomment the eviction_buffer creation line
-    //free(eviction_buffer);
+    free(eviction_buffer);
     return 0;
 }
 
