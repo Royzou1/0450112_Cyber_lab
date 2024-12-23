@@ -181,10 +181,9 @@ void vulnerable(char *your_string) {
     */
 
     // Perform the overflow
-    printf("\nstack : %c   your_str :  %c \n" ,stackbuf[0], your_string[0]);
     //my_strcpy(stackbuf, your_string);
-    for (int jj=0; jj < 12; jj++) stackbuf[jj] = your_string[jj];
-    printf("\nstack : %c   your_str :  %c \n" ,stackbuf[0], your_string[0]);
+    for (int jj=0; jj < 128*8; jj++) stackbuf[jj] = your_string[jj];
+    
     // Print the stack in chunks of 8 bytes:
 #ifndef PART2B
     printf("\nRecall win() is at: 0x%lX\n", (uint64_t)&win);
