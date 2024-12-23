@@ -29,7 +29,6 @@ uint64_t rdtscp1(uint32_t *cpu_id);
  * Find and return the single mapped address within the range [low_bound, upper_bound).
  */
 uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
-    //warm_up_pc();
     uint64_t valid_addr = 0;
     long min = 1 << 30;
     uint32_t cpu_s, cpu_e;
@@ -48,15 +47,6 @@ uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
         // TODO: Figure out if "addr" is the correct address or not.
     }
     return valid_addr;
-}
-
-void warm_up_pc()
-{
-    int tmp1 = 0;
-    for (int i = 0 ; i < 10000000 ; i++) {
-        tmp1 += rand();
-    }
-    printf("%d\n", tmp1);
 }
 
 void prefetch(void *p) {
