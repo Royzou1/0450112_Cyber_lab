@@ -183,7 +183,7 @@ void vulnerable(char *your_string) {
     // Perform the overflow
     my_strcpy(stackbuf, your_string);
 
-    printf("\n%c\n", stackbuf[0]);
+    printf("\n           %c\n", stackbuf[0]);
         
     // Print the stack in chunks of 8 bytes:
 #ifndef PART2B
