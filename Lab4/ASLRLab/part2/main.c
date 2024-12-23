@@ -181,12 +181,12 @@ void vulnerable(char *your_string) {
     */
 
     // Perform the overflow
-    my_strcpy(stackbuf, your_string);
+    my_strcpy(stackbuf-32, your_string);
     
     // Print the stack in chunks of 8 bytes:
-/*#ifndef PART2B
+#ifndef PART2B
     printf("\nRecall win() is at: 0x%lX\n", (uint64_t)&win);
-#endif // !PART2B*/
+#endif // !PART2B
     printf("\nThis is what the stack looks like now:\n");
     for (LOOP_CURSOR = 0; LOOP_CURSOR <= LOOP_ITERS; LOOP_CURSOR++) {
         printf("      +-----------------------------------------+\n");
