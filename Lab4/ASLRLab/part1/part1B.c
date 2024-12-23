@@ -21,6 +21,9 @@
 #include "lab.h"
 
 void warm_up_pc();
+void prefetch(void *addr);
+void mem_fence();
+uint64_t rdtscp1(uint32_t *cpu_id);
 /*
  * Part 1
  * Find and return the single mapped address within the range [low_bound, upper_bound).
@@ -29,13 +32,14 @@ uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
     warm_up_pc();
     uint64_t valid_addr = 0;
     long min = 1 << 30;
-    uint64_t tmp;
+    uint32_t tmp;
+    long start , end , dt;
     for (uint64_t addr = low_bound; addr < high_bound; addr += PAGE_SIZE) {
-        _mfence();
-        long start , end , dt;
-        start = _rdtscp(&tmp);
-        _m_prefetch(addr);
-        end = _rdtscp(&tmp);
+        mem_fence();
+        start = rdtscp1(&tmp);
+        prefetch(addr);
+        end = rdtscp1(&tmp);
+        mem_fence();
         dt = end - start;
         if (dt < min) {
             min = dt;
@@ -53,4 +57,32 @@ void warm_up_pc()
         tmp1 += rand();
     }
     printf("%d\n", tmp1);
+}
+
+void prefetch(void *addr) {
+    asm volatile ("prefetchnta (%0)" : : "r" (p));
+    asm volatile ("prefetcht2 (%0)" : : "r" (p));
+}
+
+void mem_fence() {
+    asm volatile("mfence" ::: "memory");
+}
+
+uint64_t rdtscp1(uint32_t *cpu_id) {
+    uint32_t lo, hi;
+    uint32_t aux;
+
+    // Use RDTSCP instruction to get the TSC and CPU ID
+    asm volatile(
+        "rdtscp"                 // Read the TSC and CPU ID
+        : "=a"(lo), "=d"(hi), "=c"(aux)  // Output: lo (low), hi (high), aux (processor ID)
+        :                          // No inputs
+        : "memory"                // Memory clobbered
+    );
+
+    // Store CPU ID (processor ID) in the provided variable
+    *cpu_id = aux;
+
+    // Combine the low and high parts of the TSC into a 64-bit value
+    return ((uint64_t)hi << 32) | lo;
 }
