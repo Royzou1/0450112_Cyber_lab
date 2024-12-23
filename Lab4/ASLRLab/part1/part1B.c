@@ -30,11 +30,11 @@ uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
     uint64_t valid_addr = 0;
     long min = 1 << 30;
     for (uint64_t addr = low_bound; addr < high_bound; addr += PAGE_SIZE) {
-        mfence();
+        asm volatile{"mfence":::"memory"};
         long start , end , dt;
-        start = rdtscp();
-        prefetch(addr);
-        end = rdtscp();
+        start = _rdtscp();
+        _m_prefetch(addr);
+        end = _rdtscp();
         dt = end - start;
         if (dt < min) {
             min = dt;
