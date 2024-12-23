@@ -59,7 +59,7 @@ void warm_up_pc()
     printf("%d\n", tmp1);
 }
 
-void prefetch(void *addr) {
+void prefetch(void *p) {
     asm volatile ("prefetchnta (%0)" : : "r" (p));
     asm volatile ("prefetcht2 (%0)" : : "r" (p));
 }
