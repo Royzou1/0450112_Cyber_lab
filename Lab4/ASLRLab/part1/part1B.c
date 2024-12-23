@@ -41,7 +41,7 @@ uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
         end = rdtscp1(&cpu_e);
         if (cpu_s != cpu_e) {
             addr -= PAGE_SIZE;
-            continue;s
+            continue;
         }
         mem_fence();
         dt = end - start;
