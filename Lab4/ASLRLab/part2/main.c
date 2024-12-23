@@ -56,6 +56,7 @@ void call_me_maybe(uint64_t rdi, uint64_t rsi, uint64_t rdx) {
  * A version of strcpy that allows NULLs but stops on newlines ('\n' == 0x0A)
  */
 void my_strcpy(char *dst, char *src) {
+    printf("\ndst: 0x%x\n" ,dst);
     char *cursor = src;
 
     while (*cursor != '\n') {
