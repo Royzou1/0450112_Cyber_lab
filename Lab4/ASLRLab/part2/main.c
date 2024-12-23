@@ -179,8 +179,9 @@ void vulnerable(char *your_string) {
     */
 
     // Perform the overflow
+    printf("\n0x%x\n" ,stackbuf);
     my_strcpy(stackbuf, your_string);
-
+    
     // Print the stack in chunks of 8 bytes:
 #ifndef PART2B
     printf("\nRecall win() is at: 0x%lX\n", (uint64_t)&win);
