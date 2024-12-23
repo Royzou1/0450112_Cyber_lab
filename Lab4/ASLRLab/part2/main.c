@@ -56,11 +56,11 @@ void call_me_maybe(uint64_t rdi, uint64_t rsi, uint64_t rdx) {
  * A version of strcpy that allows NULLs but stops on newlines ('\n' == 0x0A)
  */
 void my_strcpy(char *dst, char *src) {
-    printf("\ndst: 0x%x\n" ,dst);
+    //printf("\ndst: 0x%x\n" ,dst);
     char *cursor = src;
 
     while (*cursor != '\n') {
-        printf("\ndst: 0x%x %c\n" ,dst, *cursor);
+        //printf("\ndst: 0x%x %c\n" ,dst, *cursor);
         *dst = *cursor;
         cursor++;
         dst++;
@@ -181,12 +181,9 @@ void vulnerable(char *your_string) {
     */
 
     // Perform the overflow
-    printf("\n0x%x\n" ,stackbuf);
+    
     my_strcpy(stackbuf, your_string);
-    stackbuf[0] = 1;
-    stackbuf[8] = 2;
-    stackbuf[16] = 3;
-    stackbuf[24] = 4;
+    printf("\nstack : %c   your_str :  %c \n" ,stackbuf[0], your_string[0]);
     // Print the stack in chunks of 8 bytes:
 #ifndef PART2B
     printf("\nRecall win() is at: 0x%lX\n", (uint64_t)&win);
