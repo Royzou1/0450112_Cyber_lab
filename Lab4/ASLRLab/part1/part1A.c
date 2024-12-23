@@ -27,7 +27,12 @@
 uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
     for (uint64_t addr = low_bound; addr < high_bound; addr += PAGE_SIZE) {
         // TODO: Figure out if "addr" is the correct address or not.
-    }
+        const char *pathname = (const char *)addr;
 
+        // Attempt to access the "file"
+        if (access(pathname, F_OK) == 0) {
+            return addr;
+        }
+    }
     return 0;
 }
