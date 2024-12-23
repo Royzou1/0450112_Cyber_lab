@@ -32,13 +32,17 @@ uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
     warm_up_pc();
     uint64_t valid_addr = 0;
     long min = 1 << 30;
-    uint32_t tmp;
+    uint32_t cpu_s, cpu_e;
     long start , end , dt;
     for (uint64_t addr = low_bound; addr < high_bound; addr += PAGE_SIZE) {
         mem_fence();
-        start = rdtscp1(&tmp);
+        start = rdtscp1(&cpu_s);
         prefetch(addr);
-        end = rdtscp1(&tmp);
+        end = rdtscp1(&cpu_e);
+        if (cpu_s != cpu_e) {
+            addr -= PAGE_SIZE;
+            continue;s
+        }
         mem_fence();
         dt = end - start;
         if (dt < min) {
