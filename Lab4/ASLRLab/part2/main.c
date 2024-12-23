@@ -60,6 +60,7 @@ void my_strcpy(char *dst, char *src) {
     char *cursor = src;
 
     while (*cursor != '\n') {
+        printf("\ndst: 0x%x %c\n" ,dst, *cursor);
         *dst = *cursor;
         cursor++;
         dst++;
