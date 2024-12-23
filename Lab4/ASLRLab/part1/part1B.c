@@ -20,14 +20,36 @@
 #include <x86intrin.h>
 #include "lab.h"
 
+void warm_up_pc();
 /*
  * Part 1
  * Find and return the single mapped address within the range [low_bound, upper_bound).
  */
 uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
+    warm_up_pc();
+    uint64_t valid_addr = 0;
+    long min = 1 << 30;
     for (uint64_t addr = low_bound; addr < high_bound; addr += PAGE_SIZE) {
+        mfence();
+        long start , end , dt;
+        start = rdtscp();
+        prefetch(addr);
+        end = rdtscp();
+        dt = end - start;
+        if (dt < min) {
+            min = dt;
+            valid_addr = addr;
+        }
         // TODO: Figure out if "addr" is the correct address or not.
     }
+    return valid_addr;
+}
 
-    return 0;
+void warm_up_pc()
+{
+    int tmp1 = 0;
+    for (int i = 0 ; i < 10000000 ; i++) {
+        tmp1 += rand();
+    }
+    printf("%d\n", tmp1);
 }
