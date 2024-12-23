@@ -30,7 +30,8 @@ uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
         const char *pathname = (const char *)addr;
 
         // Attempt to access the "file"
-        if (access(pathname, F_OK) == 0) {
+        access(pathname, F_OK)
+        if (errno == 2) {
             return addr;
         }
     }
