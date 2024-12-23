@@ -50,7 +50,7 @@ void lab_code() {
 
 	// Recall that arg1 is rdi, arg2 is rsi, and arg3 is rdx.
 	// See gadgets.s for the gadget definitions.
-	your_string[3]=gadget3_addr;
+	/*your_string[3]=gadget3_addr;
 	your_string[4]=gadget5_addr;
 	your_string[5]=gadget5_addr;
 	your_string[6]=gadget6_addr;
@@ -59,5 +59,6 @@ void lab_code() {
 	your_string[9]=191;
 	your_string[10]=gadget4_addr;
 	your_string[11]=call_me_maybe_addr;
+	*/
 	vulnerable((char *)your_string);
 }
