@@ -1,0 +1,640 @@
+Trace 1 (Label: https://www.google.com):
+  Min: 15455212
+  Max: 17021595
+  Median: 16945836.5
+  Mean: 16653507.2
+  Variance: 251278985587.95996
+
+
+Trace 2 (Label: https://www.google.com):
+  Min: 13109020
+  Max: 17002401
+  Median: 16729266.0
+  Mean: 15949868.6
+  Variance: 1799684925090.2397
+
+
+Trace 3 (Label: https://www.google.com):
+  Min: 15775198
+  Max: 17006453
+  Median: 16745461.0
+  Mean: 16649499.1
+  Variance: 130989067504.89001
+
+
+Trace 4 (Label: https://www.google.com):
+  Min: 15603540
+  Max: 17073016
+  Median: 16756409.0
+  Mean: 16701326.5
+  Variance: 155767737228.65
+
+
+Trace 5 (Label: https://www.google.com):
+  Min: 12999487
+  Max: 16909219
+  Median: 16547259.5
+  Mean: 15851550.4
+  Variance: 1802128081529.0398
+
+
+Trace 6 (Label: https://www.google.com):
+  Min: 15419438
+  Max: 17021171
+  Median: 16920077.5
+  Mean: 16677521.3
+  Variance: 240325024836.40997
+
+
+Trace 7 (Label: https://www.google.com):
+  Min: 15773657
+  Max: 17077817
+  Median: 16987982.5
+  Mean: 16871691.3
+  Variance: 136363089811.61002
+
+
+Trace 8 (Label: https://www.google.com):
+  Min: 13349956
+  Max: 17028087
+  Median: 16493104.0
+  Mean: 15986535.4
+  Variance: 1562952859219.04
+
+
+Trace 9 (Label: https://www.google.com):
+  Min: 15308166
+  Max: 17088935
+  Median: 16851781.5
+  Mean: 16663555.3
+  Variance: 261343337589.01
+
+
+Trace 10 (Label: https://www.google.com):
+  Min: 15655673
+  Max: 16900581
+  Median: 16698127.0
+  Mean: 16464903.8
+  Variance: 204314748553.15997
+
+
+Trace 11 (Label: https://www.google.com):
+  Min: 13001045
+  Max: 17096327
+  Median: 16589636.0
+  Mean: 16042393.2
+  Variance: 1543762853952.1602
+
+
+Trace 12 (Label: https://www.google.com):
+  Min: 15802514
+  Max: 17047474
+  Median: 16674922.0
+  Mean: 16677127.3
+  Variance: 112371711597.40999
+
+
+Trace 13 (Label: https://www.google.com):
+  Min: 15599691
+  Max: 17051532
+  Median: 16709079.0
+  Mean: 16633744.9
+  Variance: 142767518977.49002
+
+
+Trace 14 (Label: https://www.google.com):
+  Min: 13309768
+  Max: 17014967
+  Median: 16844539.0
+  Mean: 16276739.0
+  Variance: 1291843174968.4
+
+
+Trace 15 (Label: https://www.google.com):
+  Min: 15026364
+  Max: 17047969
+  Median: 16683701.0
+  Mean: 16583687.4
+  Variance: 331945629227.64
+
+
+Trace 16 (Label: https://www.google.com):
+  Min: 16146412
+  Max: 17031090
+  Median: 16550833.5
+  Mean: 16585384.3
+  Variance: 70116087197.01
+
+
+Trace 17 (Label: https://www.google.com):
+  Min: 13528329
+  Max: 16998693
+  Median: 16787447.5
+  Mean: 16289315.5
+  Variance: 1062729415025.45
+
+
+Trace 18 (Label: https://www.google.com):
+  Min: 15616931
+  Max: 17001165
+  Median: 16617162.5
+  Mean: 16549164.5
+  Variance: 137955990887.45
+
+
+Trace 19 (Label: https://www.google.com):
+  Min: 16015969
+  Max: 17038798
+  Median: 16766451.0
+  Mean: 16684408.5
+  Variance: 87162427698.25
+
+
+Trace 20 (Label: https://www.google.com):
+  Min: 13377511
+  Max: 17099550
+  Median: 16806732.5
+  Mean: 16351079.5
+  Variance: 1132012114288.65
+
+
+Trace 21 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15211531
+  Max: 17024629
+  Median: 16663109.0
+  Mean: 16383320.0
+  Variance: 425278832011.0
+
+
+Trace 22 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15376308
+  Max: 16880630
+  Median: 16501948.0
+  Mean: 16399596.4
+  Variance: 207325120683.84003
+
+
+Trace 23 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 12887728
+  Max: 17018135
+  Median: 16429278.0
+  Mean: 16045016.9
+  Variance: 1410377069144.8901
+
+
+Trace 24 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 14482479
+  Max: 16989306
+  Median: 16379550.5
+  Mean: 16210019.2
+  Variance: 555578276867.5599
+
+
+Trace 25 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15339410
+  Max: 17022552
+  Median: 16799975.5
+  Mean: 16551684.3
+  Variance: 314656355682.81
+
+
+Trace 26 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 12764290
+  Max: 16821206
+  Median: 16436639.0
+  Mean: 15902558.9
+  Variance: 1376758459189.49
+
+
+Trace 27 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 14666038
+  Max: 16957316
+  Median: 16685730.5
+  Mean: 16266363.5
+  Variance: 557355920511.45
+
+
+Trace 28 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15334758
+  Max: 16968388
+  Median: 16859060.0
+  Mean: 16505581.9
+  Variance: 376453073668.29
+
+
+Trace 29 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 13477364
+  Max: 16897322
+  Median: 16453658.5
+  Mean: 16031609.9
+  Variance: 996647650099.4899
+
+
+Trace 30 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 14072913
+  Max: 16860134
+  Median: 16631550.5
+  Mean: 16201126.8
+  Variance: 760296398424.3601
+
+
+Trace 31 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 14901553
+  Max: 16824784
+  Median: 16518563.0
+  Mean: 16241053.5
+  Variance: 384732001550.05
+
+
+Trace 32 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 13299726
+  Max: 16904875
+  Median: 16574717.5
+  Mean: 15906145.6
+  Variance: 1298533442823.04
+
+
+Trace 33 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 13976446
+  Max: 17014238
+  Median: 16730515.0
+  Mean: 16282240.6
+  Variance: 977309434497.8398
+
+
+Trace 34 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15116411
+  Max: 16854482
+  Median: 16554929.0
+  Mean: 16342000.4
+  Variance: 340261775823.64
+
+
+Trace 35 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 13312696
+  Max: 16885060
+  Median: 16460911.0
+  Mean: 16006077.9
+  Variance: 1077843972524.0901
+
+
+Trace 36 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 14303141
+  Max: 16824922
+  Median: 16647759.0
+  Mean: 16279371.0
+  Variance: 731586350919.2
+
+
+Trace 37 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15413679
+  Max: 16882171
+  Median: 16404253.5
+  Mean: 16327608.0
+  Variance: 276720641433.2
+
+
+Trace 38 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 13136354
+  Max: 16810408
+  Median: 16433460.5
+  Mean: 15964589.1
+  Variance: 1163082853664.29
+
+
+Trace 39 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 14267590
+  Max: 16667099
+  Median: 16473107.0
+  Mean: 16157037.8
+  Variance: 547001591577.55994
+
+
+Trace 40 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 11147124
+  Max: 12208005
+  Median: 11930382.0
+  Mean: 11796665.9
+  Variance: 132299018105.09001
+
+
+Trace 41 (Label: https://www.ynet.co.il/home/0):
+  Min: 9705434
+  Max: 12069477
+  Median: 11549779.5
+  Mean: 11459801.8
+  Variance: 451254744466.36
+
+
+Trace 42 (Label: https://www.ynet.co.il/home/0):
+  Min: 14777643
+  Max: 17002461
+  Median: 16251535.0
+  Mean: 16195041.5
+  Variance: 557633247570.45
+
+
+Trace 43 (Label: https://www.ynet.co.il/home/0):
+  Min: 14818942
+  Max: 17051649
+  Median: 16396547.5
+  Mean: 16322916.8
+  Variance: 351205129537.7601
+
+
+Trace 44 (Label: https://www.ynet.co.il/home/0):
+  Min: 13602859
+  Max: 16658105
+  Median: 16029434.5
+  Mean: 15755429.7
+  Variance: 796829291930.4099
+
+
+Trace 45 (Label: https://www.ynet.co.il/home/0):
+  Min: 13558683
+  Max: 16941411
+  Median: 16203055.0
+  Mean: 15745297.7
+  Variance: 1325170737673.01
+
+
+Trace 46 (Label: https://www.ynet.co.il/home/0):
+  Min: 15355078
+  Max: 16901588
+  Median: 16263402.0
+  Mean: 16290298.0
+  Variance: 297154386295.8
+
+
+Trace 47 (Label: https://www.ynet.co.il/home/0):
+  Min: 13926814
+  Max: 16851509
+  Median: 16211160.5
+  Mean: 15948019.8
+  Variance: 799971999591.76
+
+
+Trace 48 (Label: https://www.ynet.co.il/home/0):
+  Min: 13480820
+  Max: 16905765
+  Median: 16026402.5
+  Mean: 15821963.3
+  Variance: 1167925032913.21
+
+
+Trace 49 (Label: https://www.ynet.co.il/home/0):
+  Min: 15040181
+  Max: 17196194
+  Median: 16583402.5
+  Mean: 16435168.0
+  Variance: 531497563252.6
+
+
+Trace 50 (Label: https://www.ynet.co.il/home/0):
+  Min: 13883919
+  Max: 17152841
+  Median: 16649518.5
+  Mean: 16225021.5
+  Variance: 931180359110.05
+
+
+Trace 51 (Label: https://www.ynet.co.il/home/0):
+  Min: 13555816
+  Max: 17097567
+  Median: 15921644.5
+  Mean: 15987168.1
+  Variance: 1087233397972.8899
+
+
+Trace 52 (Label: https://www.ynet.co.il/home/0):
+  Min: 14988783
+  Max: 16947090
+  Median: 16427183.5
+  Mean: 16281647.3
+  Variance: 368070737420.00995
+
+
+Trace 53 (Label: https://www.ynet.co.il/home/0):
+  Min: 14877871
+  Max: 16844059
+  Median: 16316652.0
+  Mean: 16228954.3
+  Variance: 343130788550.81
+
+
+Trace 54 (Label: https://www.ynet.co.il/home/0):
+  Min: 12928015
+  Max: 17078880
+  Median: 16821187.0
+  Mean: 15991078.1
+  Variance: 1838691107925.89
+
+
+Trace 55 (Label: https://www.ynet.co.il/home/0):
+  Min: 14717353
+  Max: 17143092
+  Median: 16404424.5
+  Mean: 16253264.2
+  Variance: 522199093443.16
+
+
+Trace 56 (Label: https://www.ynet.co.il/home/0):
+  Min: 15092494
+  Max: 17136405
+  Median: 16555157.0
+  Mean: 16329513.9
+  Variance: 466436518663.88995
+
+
+Trace 57 (Label: https://www.ynet.co.il/home/0):
+  Min: 14260965
+  Max: 17014892
+  Median: 16303922.5
+  Mean: 15992770.7
+  Variance: 970644542374.4099
+
+
+Trace 58 (Label: https://www.ynet.co.il/home/0):
+  Min: 14825311
+  Max: 16824546
+  Median: 16337644.0
+  Mean: 16134984.4
+  Variance: 334854241382.64
+
+
+Trace 59 (Label: https://www.ynet.co.il/home/0):
+  Min: 15172386
+  Max: 17120492
+  Median: 16185640.0
+  Mean: 16155736.7
+  Variance: 355538956708.81
+
+
+Trace 60 (Label: https://www.ynet.co.il/home/0):
+  Min: 13531683
+  Max: 16985133
+  Median: 16586644.5
+  Mean: 16027104.7
+  Variance: 1468126534545.21
+
+
+Trace 61 (Label: https://www.instagram.com):
+  Min: 14912925
+  Max: 17050829
+  Median: 15380594.5
+  Mean: 15612209.4
+  Variance: 587881842454.24
+
+
+Trace 62 (Label: https://www.instagram.com):
+  Min: 12849533
+  Max: 17016891
+  Median: 15756609.0
+  Mean: 15299978.2
+  Variance: 2235806996368.96
+
+
+Trace 63 (Label: https://www.instagram.com):
+  Min: 15002358
+  Max: 16921633
+  Median: 16287047.0
+  Mean: 16223857.4
+  Variance: 412808703251.2399
+
+
+Trace 64 (Label: https://www.instagram.com):
+  Min: 14981326
+  Max: 17111306
+  Median: 16858427.0
+  Mean: 16604314.1
+  Variance: 430659716069.89
+
+
+Trace 65 (Label: https://www.instagram.com):
+  Min: 15206213
+  Max: 17014948
+  Median: 16524296.0
+  Mean: 16309064.1
+  Variance: 356426660840.69
+
+
+Trace 66 (Label: https://www.instagram.com):
+  Min: 12093928
+  Max: 17161286
+  Median: 16412446.5
+  Mean: 15477284.9
+  Variance: 3552564570563.2905
+
+
+Trace 67 (Label: https://www.instagram.com):
+  Min: 15394466
+  Max: 17037791
+  Median: 16593916.0
+  Mean: 16427236.1
+  Variance: 286351451236.89
+
+
+Trace 68 (Label: https://www.instagram.com):
+  Min: 14859338
+  Max: 17110432
+  Median: 16818007.5
+  Mean: 16524125.2
+  Variance: 498334768300.9601
+
+
+Trace 69 (Label: https://www.instagram.com):
+  Min: 12833908
+  Max: 16986693
+  Median: 16052897.5
+  Mean: 15430317.6
+  Variance: 2378116596995.2397
+
+
+Trace 70 (Label: https://www.instagram.com):
+  Min: 13624810
+  Max: 17152663
+  Median: 16320684.5
+  Mean: 16125432.4
+  Variance: 1058696607152.6399
+
+
+Trace 71 (Label: https://www.instagram.com):
+  Min: 15074691
+  Max: 17174352
+  Median: 16534128.0
+  Mean: 16410434.9
+  Variance: 411943265299.09
+
+
+Trace 72 (Label: https://www.instagram.com):
+  Min: 15368567
+  Max: 17053561
+  Median: 16879037.0
+  Mean: 16556277.2
+  Variance: 341006682015.56006
+
+
+Trace 73 (Label: https://www.instagram.com):
+  Min: 11857070
+  Max: 17099706
+  Median: 15262830.5
+  Mean: 14998739.8
+  Variance: 2958262429296.76
+
+
+Trace 74 (Label: https://www.instagram.com):
+  Min: 15033034
+  Max: 17024442
+  Median: 16450151.5
+  Mean: 16334960.5
+  Variance: 473771933803.45
+
+
+Trace 75 (Label: https://www.instagram.com):
+  Min: 15215156
+  Max: 17208359
+  Median: 16436265.5
+  Mean: 16368394.8
+  Variance: 381922960059.76
+
+
+Trace 76 (Label: https://www.instagram.com):
+  Min: 13111138
+  Max: 16954342
+  Median: 15921749.5
+  Mean: 15661901.8
+  Variance: 1781579000992.9602
+
+
+Trace 77 (Label: https://www.instagram.com):
+  Min: 13691755
+  Max: 16908608
+  Median: 16688362.0
+  Mean: 16145734.2
+  Variance: 937503702766.36
+
+
+Trace 78 (Label: https://www.instagram.com):
+  Min: 15307635
+  Max: 17237919
+  Median: 16899788.0
+  Mean: 16648185.6
+  Variance: 383028316099.24
+
+
+Trace 79 (Label: https://www.instagram.com):
+  Min: 15481994
+  Max: 17074107
+  Median: 16883370.0
+  Mean: 16617903.0
+  Variance: 295912953249.2
+
+
+Trace 80 (Label: https://www.instagram.com):
+  Min: 11998585
+  Max: 17053932
+  Median: 16036975.5
+  Mean: 15384830.0
+  Variance: 3401093808746.0
+
+

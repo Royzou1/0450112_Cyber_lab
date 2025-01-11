@@ -61,7 +61,10 @@ def eval_RFC():
         data = []
         with open('../analysed.out', 'r') as file:
             content = file.read()
-            traces = re.findall(r'Trace (\d+) \(Label: (.*?)\):\n\s+Min: (\d+)\n\s+Max: (\d+)\n\s+Median: ([\d.]+)\n\s+Mean: ([\d.]+)\n\s+Variance: ([\d.]+)', content)
+            traces = re.findall(
+                r'Trace (\d+) \(Label: (.*?)\):\n\s+Min: (\d+)\n\s+Max: (\d+)\n\s+Median: ([\d.]+)\n\s+Mean: ([\d.]+)\n\s+Variance: ([\d.]+)',
+                content,
+            )
             for trace in traces:
                 data.append({
                     'Trace': int(trace[0]),
@@ -72,29 +75,41 @@ def eval_RFC():
                     'Mean': float(trace[5]),
                     'Variance': float(trace[6])
                 })
-        
+
+        # Convert to DataFrame
         df = pd.DataFrame(data)
         X = df[['Min', 'Max', 'Median', 'Mean', 'Variance']]
+
+        # Generate additional features (linear and non-linear)
+        X = X.copy()  # Ensure X is a deep copy of the original DataFrame
+        X['Range'] = X['Max'] - X['Min']
+        X['Mean/Median'] = X['Mean'] / X['Median']
+        X['Log_Variance'] = np.log1p(X['Variance'])
+        X['Min*Max'] = X['Min'] * X['Max']
+        X['Median^2'] = X['Median'] ** 2
+
         y = df['Label']
-        
+
         # Step 2: Split data into train and test sets
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.2, random_state=i, stratify=y
         )
-        
+
         # Step 3: Train classifier using Random Forest
         classifier = RandomForestClassifier(n_estimators=100, random_state=i)
         classifier.fit(X_train, y_train)
-        
+
         # Step 4: Make predictions
         y_pred = classifier.predict(X_test)
-        
+
         # Do not modify the next two lines
         y_test_full.extend(y_test)
         y_pred_full.extend(y_pred)
 
     # Step 5: Print classification report
     print(classification_report(y_test_full, y_pred_full))
+
+
     
 def eval_KNN():
     y_pred_full, y_test_full = [], []
