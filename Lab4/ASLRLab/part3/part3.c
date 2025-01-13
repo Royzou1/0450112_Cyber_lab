@@ -50,7 +50,6 @@ uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
  */
 void do_overflow(uint64_t page_addr) {
 
-	printf("page add: %llu" , page_addr);
 	// Put your Part 2 code here
 	// Use the page you found with find_address
 	// and the offsets located from objdump to find your gadgets
@@ -58,7 +57,7 @@ void do_overflow(uint64_t page_addr) {
 	uint64_t your_string[128];
 
 	// Fill the array with 0xFF's and set the last character to be a new line.
-	memset(your_string, 0xFF, sizeof(your_string));
+	//memset(your_string, 0xFF, sizeof(your_string));
 	your_string[127] = 0x000000000000000A;
 
 	// For now we don't worry about ASLR, we can directly use these addresses:
