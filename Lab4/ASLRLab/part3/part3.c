@@ -50,6 +50,7 @@ uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
  */
 void do_overflow(uint64_t page_addr) {
 
+	printf("page add: %llu" , page_addr);
 	// Put your Part 2 code here
 	// Use the page you found with find_address
 	// and the offsets located from objdump to find your gadgets
@@ -95,5 +96,5 @@ void do_overflow(uint64_t page_addr) {
  */
 void lab_code(uint64_t low_bound, uint64_t high_bound) {
 	uint64_t found_page = find_address(low_bound, high_bound);
-	//do_overflow(found_page);
+	do_overflow(found_page);
 }
