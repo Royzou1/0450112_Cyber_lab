@@ -18,7 +18,7 @@ parser.add_argument("--browser", type=str, choices=["chrome", "firefox", "safari
 parser.add_argument("--domains", type=str, default="google.com,youtube.com,baidu.com,facebook.com", help="Comma-separated list of domain names to collect traces from.")
 parser.add_argument("--enable_countermeasure", type=bool, default=False, help="Enable the countermeasure. Browser must be Chrome. Defaults to false.")
 parser.add_argument("--num_traces_per_domain", type=int, default=40, help="Number of traces to collect per domain.")
-parser.add_argument("--trace_length", type=int, default=5000, help="Length of each recorded trace, in milliseconds.")
+parser.add_argument("--trace_length", type=int, default=1000, help="Length of each recorded trace, in milliseconds.")
 
 required = parser.add_argument_group("required arguments")
 required.add_argument("--out_filename", type=str, required=True, help="Name of the output file to save traces to.")

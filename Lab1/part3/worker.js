@@ -8,20 +8,18 @@ let T;
 let start;
 
 function record() {
-  // Create empty array for saving trace values
   T = new Array(TRACE_LENGTH);
-
-  // Fill array with -1 so we can be sure memory is allocated
   T.fill(-1, 0, T.length);
-
-  // Save start timestamp
   start = performance.now();
 
-  // TODO (Exercise 3-1): Record data for TRACE_LENGTH seconds and save values to T.
+  for (let i = 0; i < TRACE_LENGTH; i++) {
+    let now = performance.now();
+    T[i] = now - start; 
+  }
 
-  // Once done recording, send result to main thread
   postMessage(JSON.stringify(T));
 }
+
 
 // DO NOT MODIFY BELOW THIS LINE -- PROVIDED BY COURSE STAFF
 self.onmessage = (e) => {

@@ -1,2 +1,2 @@
 
-python automateV2.py --part 2 --domains google.com,youtube.com/watch?v=_jzmBEdkHdo,ynet.co.il/home/0,7340,L-8,00.html,instagram.com --num_traces_per_domain 20 --out_filename trace.out
+python automateV2.py --part 4 --domains google.com,youtubecom/watch?v=_jzmBEdkHdo,ynet.co.il,instagram.com --num_traces_per_domain 20 --out_filename trace4.out
