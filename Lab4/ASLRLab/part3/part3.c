@@ -61,12 +61,12 @@ void do_overflow(uint64_t page_addr) {
 	your_string[127] = 0x000000000000000A;
 
 	// For now we don't worry about ASLR, we can directly use these addresses:
-	uint64_t gadget1_addr = page_addr[0];
-	uint64_t gadget2_addr = page_addr[1];
-	uint64_t gadget3_addr = page_addr[2];
-	uint64_t gadget4_addr = page_addr[3];
-	uint64_t gadget5_addr = page_addr[4];
-	uint64_t gadget6_addr = page_addr[5];
+	uint64_t gadget1_addr = page_addr;
+	uint64_t gadget2_addr = page_addr + 16;
+	uint64_t gadget3_addr = page_addr + 32;
+	uint64_t gadget4_addr = page_addr + 48;
+	uint64_t gadget5_addr = page_addr + 64;
+	uint64_t gadget6_addr = page_addr + 80;
 	uint64_t call_me_maybe_addr = (uint64_t)&call_me_maybe;
 
 	// Part 2B: Fill in your_string such that it configures the arguments
