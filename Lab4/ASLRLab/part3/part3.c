@@ -20,6 +20,35 @@
 #include <x86intrin.h>
 #include "lab.h"
 
+
+void prefetch(void *p) {
+    asm volatile ("prefetchnta (%0)" : : "r" (p));
+    asm volatile ("prefetcht2 (%0)" : : "r" (p));
+}
+
+void mem_fence() {
+    asm volatile("mfence" ::: "memory");
+}
+
+uint64_t rdtscp1(uint32_t *cpu_id) {
+    uint32_t lo, hi;
+    uint32_t aux;
+
+    // Use RDTSCP instruction to get the TSC and CPU ID
+    asm volatile(
+        "rdtscp"                 // Read the TSC and CPU ID
+        : "=a"(lo), "=d"(hi), "=c"(aux)  // Output: lo (low), hi (high), aux (processor ID)
+        :                          // No inputs
+        : "memory"                // Memory clobbered
+    );
+
+    // Store CPU ID (processor ID) in the provided variable
+    *cpu_id = aux;
+
+    // Combine the low and high parts of the TSC into a 64-bit value
+    return ((uint64_t)hi << 32) | lo;
+}
+
 // Same as in Part 2
 extern void vulnerable(char *your_string);
 extern void call_me_maybe(uint64_t rdi, uint64_t rsi, uint64_t rdx);
