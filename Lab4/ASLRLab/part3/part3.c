@@ -95,6 +95,5 @@ void do_overflow(uint64_t page_addr) {
  */
 void lab_code(uint64_t low_bound, uint64_t high_bound) {
 	uint64_t found_page = find_address(low_bound, high_bound);
-	printf("%lu",found_page);
 	//do_overflow(found_page);
 }
