@@ -79,7 +79,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
             }
         }
         leaked_str[current_offset] = max;
-        if (leaked_byte == '\x00') {
+        if (max == '\x00') {
             break;
         }
     }
