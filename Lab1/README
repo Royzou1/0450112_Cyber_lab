@@ -1,2 +1,5 @@
+python -m http.server
 
-python automateV2.py --part 4 --domains google.com,youtubecom/watch?v=_jzmBEdkHdo,ynet.co.il,instagram.com --num_traces_per_domain 20 --out_filename trace4.out
+python automateV2.py --part 2 --domains google.com,youtube.com/watch?v=_jzmBEdkHdo,ynet.co.il,instagram.com --num_traces_per_domain 20 --out_filename new_trace2.out
+python automateV2.py --part 3 --domains google.com,youtube.com/watch?v=_jzmBEdkHdo,ynet.co.il,instagram.com --num_traces_per_domain 20 --out_filename new_trace3.out
+python automateV2.py --part 4 --domains google.com,youtube.com/watch?v=_jzmBEdkHdo,ynet.co.il,instagram.com --num_traces_per_domain 20 --out_filename new_trace4.out --enable_countermeasure true
