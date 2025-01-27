@@ -113,7 +113,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
         // leaked_byte = ??
 
         leaked_str[current_offset] = max_idx(hist, 256);
-        fprintf(stderr, "    %c\t should be %c\n", leaked_str[current_offset], sol[current_offset]);
+        //fprintf(stderr, "    %c\t should be %c\n", leaked_str[current_offset], sol[current_offset]);
         if (max_idx(hist , 256) == 0) {//'\0'
             break;
         }
