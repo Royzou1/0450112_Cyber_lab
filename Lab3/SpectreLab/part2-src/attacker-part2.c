@@ -63,7 +63,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
 
     for (current_offset = 0; current_offset < SHD_SPECTRE_LAB_SECRET_MAX_LEN; current_offset++) {
         int hist[256] = {0};
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 50; i++)
         {
             char leaked_byte;
             int min = 100000;
