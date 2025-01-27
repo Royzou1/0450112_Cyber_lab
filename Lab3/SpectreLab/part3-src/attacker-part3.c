@@ -68,6 +68,7 @@ void flush_cache() {
 int run_attacker(int kernel_fd, char *shared_memory) {
     char leaked_str[SHD_SPECTRE_LAB_SECRET_MAX_LEN];
     size_t current_offset = 0;
+    char sol[] = "Technion{h4rd3st}";
 
     srand(time(0));
     printf("Launching attacker\n");
@@ -105,7 +106,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
         // leaked_byte = ??
 
         leaked_str[current_offset] = max_idx(hist, 256);
-        fprintf(stderr, "    %c\n", leaked_str[current_offset]);
+        fprintf(stderr, "    %c\t should be %c\n", leaked_str[current_offset], sol[current_offset]);
         if (max_idx(hist , 256) == 0) {//'\0'
             break;
         }
