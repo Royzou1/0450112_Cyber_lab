@@ -11,6 +11,7 @@ This does not include partial credit for nearly correct answers.
 '''
 
 def check(name, trials, secret, error_rate, timeout, pass_once=False):
+    print (name)
     '''
     name: The name of the program to check
     trials: How many trials to run
