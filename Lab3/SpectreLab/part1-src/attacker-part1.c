@@ -49,7 +49,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
 
     printf("Launching attacker\n");
     for (current_offset = 0; current_offset < SHD_SPECTRE_LAB_SECRET_MAX_LEN; current_offset++) {
-        int hist[255] = {0};
+        int hist[256] = {0};
         for (int j = 0; j < 30; j++) {
             char leaked_byte;
             int min = 100000;
