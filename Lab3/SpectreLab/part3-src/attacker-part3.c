@@ -50,7 +50,14 @@ int max_idx(int *hist , int size) {
     return max_id;
 }
 
-
+void flush_cache() {
+    int size = 50000
+    int all_cache[size] = {0}
+    for (int i = 1 ; i < size ; i++)
+    {
+        all_cache[i] = rand()%25 - all_cache[i-1]%3;
+    }
+}
 /*
  * run_attacker
  *
@@ -78,6 +85,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
             }
             mfence();
             clean_shared_memory_from_tlb(shared_memory);
+            flush_cache();
             mfence();
             call_kernel_part3(kernel_fd, shared_memory, current_offset);
             int tmp;
