@@ -7,9 +7,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+#include <time.h>
 #include "labspectre.h"
 #include "labspectreipc.h"
+
+static inline void mfence() {
+    asm volatile("mfence");
+}
 
 /*
  * call_kernel_part3
