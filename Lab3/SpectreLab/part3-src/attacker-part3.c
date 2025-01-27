@@ -52,7 +52,7 @@ int max_idx(int *hist , int size) {
 
 void flush_cache() {
     int size = 50000
-    int all_cache[size] = {0}
+    int all_cache[size];
     for (int i = 1 ; i < size ; i++)
     {
         all_cache[i] = rand()%25 - all_cache[rand()%size];
