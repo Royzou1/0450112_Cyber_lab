@@ -51,7 +51,7 @@ int max_idx(int *hist , int size) {
 }
 
 void flush_cache() {
-    int size = 50000
+    int size = 50000;
     int all_cache[size];
     for (int i = 1 ; i < size ; i++)
     {
