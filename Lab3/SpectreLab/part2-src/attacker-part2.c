@@ -39,7 +39,7 @@ void clean_shared_memory_from_tlb(char *shared_memory) {
 int max_idx(int *hist , int size) {
     int max_id = 0;
     for (int i = 0; i < size; i++) {
-        if hist[i] > hist[max_id] {
+        if (hist[i] > hist[max_id]) {
             max_id = i;
         }
     }
@@ -62,7 +62,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
     printf("Launching attacker\n");
 
     for (current_offset = 0; current_offset < SHD_SPECTRE_LAB_SECRET_MAX_LEN; current_offset++) {
-        hist[256] = {0}
+        hist[256] = {0};
         for (int i = 0; i < 30; i++)
         {
             char leaked_byte;
@@ -89,7 +89,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
         // leaked_byte = ??
 
         leaked_str[current_offset] = max_idx(hist);
-        if (max_idx(hist) == '\x00') {
+        if (max_idx(hist) == 0) {//'\0'
             break;
         }
     }
