@@ -11,7 +11,6 @@ This does not include partial credit for nearly correct answers.
 '''
 
 def check(name, trials, secret, error_rate, timeout, pass_once=False):
-    print (name)
     '''
     name: The name of the program to check
     trials: How many trials to run
@@ -51,6 +50,7 @@ def check(name, trials, secret, error_rate, timeout, pass_once=False):
         return False
 
 def main():
+    print("in main....")
     parser = argparse.ArgumentParser(description="Check your lab code")
     parser.add_argument('part', type=str, help="Which part to check? 1, 2, or 3?")
     args = parser.parse_args()
@@ -72,4 +72,5 @@ def main():
         check("part3", 5, b"Technion{h4rd3st}", 0.20, 600, pass_once=True)
 
 if __name__=="__main__":
+    print("into main....")
     main()
