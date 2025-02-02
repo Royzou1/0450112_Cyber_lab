@@ -109,7 +109,7 @@ int main (int ac, char **av) {
         printf("In sample number : %d" , i);
         int rand = random() % ((L3_SIZE) / 8);
         tmp += target_buffer[rand];
-        flush_cache(L2_SIZE/4 , (int*)eviction_buffer);
+        flush_cache(L2_SIZE , (int*)eviction_buffer);
         l3_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
     printf("Done L3\n");
