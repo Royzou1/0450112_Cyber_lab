@@ -57,7 +57,6 @@ int main (int ac, char **av) {
     // the size of an unsigned integer (uint64_t) is 8 Bytes
     // Therefore, we request 8 * 8 Bytes
     uint64_t *target_buffer = (uint64_t*)malloc(L3_SIZE*sizeof(uint8_t));
-    int size = L3_SIZE*sizeof(uint8_t) / 4 
 
     if (NULL == target_buffer) {
         perror("Unable to malloc");
