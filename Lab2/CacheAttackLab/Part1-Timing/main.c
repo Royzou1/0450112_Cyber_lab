@@ -35,7 +35,7 @@ void flush_cache(int size , int *all_cache) {
             all_cache[0] += all_cache[i];
         }
     }
-    printf("%d" , all_cache[0]);
+    fprintf(stderr, "%d" , all_cache[0]);
 }
 
 
@@ -78,7 +78,7 @@ int main (int ac, char **av) {
         mfence();
         l1_latency[i] = measure_one_block_access_time((uint64_t)target_buffer);
     }
-    printf("Done L1\n");
+    //printf("Done L1\n");
     // ======
     // [1.2] TODO: Measure DRAM Latency, store results in dram_latency array
     // ======
@@ -89,7 +89,7 @@ int main (int ac, char **av) {
         mfence();
         dram_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
-    printf("Done Dram\n");
+    //printf("Done Dram\n");
     // ======
     // [1.2] TODO: Measure L2 Latency, store results in l2_latency array
     // ======
@@ -101,7 +101,7 @@ int main (int ac, char **av) {
         mfence();
         l2_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
-    printf("Done L2\n");
+    //printf("Done L2\n");
     // ======
     // [1.2] TODO: Measure L3 Latency, store results in l3_latency array
     // ======
@@ -113,14 +113,14 @@ int main (int ac, char **av) {
         mfence();
         l3_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
-    printf("Done L3\n");
+    //printf("Done L3\n");
 
 
     // Print the results to the screen
     // [1.5] Change print_results to print_results_for_python so that your code will work
     // with the python plotter software
-    print_results(dram_latency, l1_latency, l2_latency, l3_latency);
-
+    //print_results(dram_latency, l1_latency, l2_latency, l3_latency);
+    print_results_for_python(dram_latency, l1_latency, l2_latency, l3_latency);
     free(target_buffer);
 
     // [1.2] TODO: Uncomment this line once you uncomment the eviction_buffer creation line
