@@ -73,7 +73,6 @@ int main (int ac, char **av) {
     for (int i=0; i<SAMPLES; i++){
         // Step 1: bring the target cache line into L1 by simply accessing the line
         tmp = target_buffer[0];
-        flush_cache (L2_SIZE/4 , (int*)eviction_buffer);
         // Step 2: measure the access latency
         mfence();
         l1_latency[i] = measure_one_block_access_time((uint64_t)target_buffer);
@@ -97,7 +96,7 @@ int main (int ac, char **av) {
     for (int i = 0; i < SAMPLES ; ++i) {
         int rand = random() % ((L3_SIZE) / 8);
         tmp += target_buffer[rand];
-        flush_cache(L1_SIZE/4 , (int*)eviction_buffer);
+        flush_cache(L1_SIZE , (int*)eviction_buffer);
         mfence();
         l2_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
@@ -109,7 +108,7 @@ int main (int ac, char **av) {
     for (int i = 0; i < SAMPLES ; ++i) {
         int rand = random() % ((L3_SIZE) / 8);
         tmp += target_buffer[rand];
-        flush_cache(L2_SIZE/2 , (int*)eviction_buffer);
+        flush_cache(L2_SIZE , (int*)eviction_buffer);
         mfence();
         l3_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
