@@ -65,7 +65,7 @@ int main (int ac, char **av) {
 
     // [1.2] TODO: Uncomment the following line to allocate a buffer of a size
     // of your chosing. This will help you measure the latencies at L2 and L3.
-    uint64_t *eviction_buffer = (uint64_t*)malloc(L3_SIZE*sizeof(uint8_t));
+    uint64_t *eviction_buffer = (uint64_t*)malloc(2*L3_SIZE*sizeof(uint8_t));
 
     // Example: Measure L1 access latency, store results in l1_latency array
     warmUp();
@@ -83,7 +83,7 @@ int main (int ac, char **av) {
     // ======
     //
     for (int i = 0 ; i < SAMPLES ; i++) {
-        int rand = random() % ((2*L3_SIZE) / 8);
+        int rand = random() % ((L3_SIZE) / 8);
         flush_cache(L3_SIZE/4 , (int*)eviction_buffer);
         dram_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
