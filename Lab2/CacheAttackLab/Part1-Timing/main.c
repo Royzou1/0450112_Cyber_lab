@@ -7,13 +7,39 @@
 #define L1_SIZE 32768
 #define L2_SIZE 262144
 #define L3_SIZE 12582912
- 
-int main (int ac, char **av) {
+
+static inline void mfence() {
+    asm volatile("mfence");
+}
+
+
+void warmUp() {
     int tmp1 = 0;
     for (int i = 0 ; i < 10000000 ; i++) {
-        tmp1 += rand();
+        tmp1 += rand() % 100;
     }
     printf("%d\n", tmp1);
+}
+
+void flush_cache(int size , int *all_cache) {
+    for (int i = 1 ; i < size ; i++)
+    {
+        all_cache[i] = rand()%25;
+    }
+    int it = 100 +  rand() % 20;
+    int tmp = 0;
+    for (int i = 0 ; i < it ; i++) {
+        for (int i = 1 ; i < size ; i++)
+        {
+            mfence();
+            all_cache[i] += all_cache[i];
+        }
+    }
+}
+
+
+int main (int ac, char **av) {
+    
     
     // create 4 arrays to store the latency numbers
     // the arrays are initialized to 0
@@ -30,7 +56,8 @@ int main (int ac, char **av) {
     // Allocate a buffer of 64 Bytes
     // the size of an unsigned integer (uint64_t) is 8 Bytes
     // Therefore, we request 8 * 8 Bytes
-    uint64_t *target_buffer = (uint64_t *)malloc(2*L3_SIZE*sizeof(uint8_t));
+    uint64_t *target_buffer = (uint64_t*)malloc(L3_SIZE*sizeof(uint8_t));
+    int size = L3_SIZE*sizeof(uint8_t) / 4 
 
     if (NULL == target_buffer) {
         perror("Unable to malloc");
@@ -39,9 +66,11 @@ int main (int ac, char **av) {
 
     // [1.2] TODO: Uncomment the following line to allocate a buffer of a size
     // of your chosing. This will help you measure the latencies at L2 and L3.
-    uint64_t *eviction_buffer = (uint64_t*)malloc(sizeof(uint8_t)*(L1_SIZE + L2_SIZE));
+    uint64_t *eviction_buffer = (uint64_t*)malloc(sizeof(uint8_t)*(L2_SIZE));
 
     // Example: Measure L1 access latency, store results in l1_latency array
+    warmUp();
+
     for (int i=0; i<SAMPLES; i++){
         // Step 1: bring the target cache line into L1 by simply accessing the line
         tmp = target_buffer[0];
@@ -56,7 +85,7 @@ int main (int ac, char **av) {
     //
     for (int i = 0 ; i < SAMPLES ; i++) {
         int rand = random() % ((2*L3_SIZE) / 8);
-        clflush(target_buffer + rand);
+        flush_cache(L3_SIZE/4 , (int*)eviction_buffer);
         dram_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
     
@@ -81,10 +110,7 @@ int main (int ac, char **av) {
     for (int i = 0; i < SAMPLES ; ++i) {
         int rand = random() % ((2*L3_SIZE) / 8);
         tmp += target_buffer[rand];
-        for (int j = 0 ; j < (L1_SIZE + L2_SIZE) / 8 ; j++) {
-            eviction_buffer[j] = j;
-            tmp += eviction_buffer[j];
-        }
+        flush_cache(L2_SIZE/4 , (int*)eviction_buffer);
         l3_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
 
