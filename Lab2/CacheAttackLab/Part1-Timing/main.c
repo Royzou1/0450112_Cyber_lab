@@ -73,7 +73,7 @@ int main (int ac, char **av) {
     for (int i=0; i<SAMPLES; i++){
         // Step 1: bring the target cache line into L1 by simply accessing the line
         tmp = target_buffer[0];
-        flush_cache (L2_SIZE/4 , (int*)eviction_buffer)
+        flush_cache (L2_SIZE/4 , (int*)eviction_buffer);
         // Step 2: measure the access latency
         l1_latency[i] = measure_one_block_access_time((uint64_t)target_buffer);
     }
