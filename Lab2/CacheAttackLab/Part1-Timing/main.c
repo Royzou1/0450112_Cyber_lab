@@ -26,15 +26,16 @@ void flush_cache(int size , int *all_cache) {
     {
         all_cache[i] = rand()%25;
     }
-    int it = 100 +  rand() % 20;
+    int it = 10 +  rand() % 20;
     int tmp = 0;
     for (int i = 0 ; i < it ; i++) {
         for (int i = 1 ; i < size ; i++)
         {
             mfence();
-            all_cache[i] += all_cache[i];
+            all_cache[0] += all_cache[i];
         }
     }
+    printf("%d" , all_cache[0]);
 }
 
 
@@ -84,7 +85,7 @@ int main (int ac, char **av) {
     //
     for (int i = 0 ; i < SAMPLES ; i++) {
         int rand = random() % ((L3_SIZE) / 8);
-        flush_cache(L3_SIZE/4 , (int*)eviction_buffer);
+        flush_cache(L3_SIZE , (int*)eviction_buffer);
         mfence();
         dram_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
