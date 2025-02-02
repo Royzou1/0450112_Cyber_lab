@@ -1,0 +1,560 @@
+Trace 10 (Label: https://www.google.com):
+  Min: 20432595
+  Max: 21979036
+  Median: 21807463.5
+  Mean: 21524288.8
+  Variance: 336420587948.16
+  third_moment: -2.186948522996236e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 19098773
+  Max: 21853479
+  Median: 21729784.5
+  Mean: 21119580.5
+  Variance: 943439348451.85
+  third_moment: -9.684566975496366e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 19546537
+  Max: 21967275
+  Median: 21639361.0
+  Mean: 21491527.5
+  Variance: 466316993613.85
+  third_moment: -7.04839739087436e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 19780227
+  Max: 21802525
+  Median: 21740275.5
+  Mean: 21457179.9
+  Variance: 378570099645.08997
+  third_moment: -4.7059733075288435e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 19570106
+  Max: 21559396
+  Median: 20861006.5
+  Mean: 20693798.3
+  Variance: 673020214595.41
+  third_moment: -1.715047296647226e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 19684654
+  Max: 21895832
+  Median: 21750990.0
+  Mean: 21476824.6
+  Variance: 406058903130.04
+  third_moment: -5.575928314213231e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 19423282
+  Max: 21553863
+  Median: 21428824.0
+  Mean: 21122894.9
+  Variance: 412610259056.08997
+  third_moment: -4.9741965786573485e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 19983806
+  Max: 21546238
+  Median: 21095965.5
+  Mean: 20987937.8
+  Variance: 206666368698.96
+  third_moment: -1.0193387284840722e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 16737687
+  Max: 21830315
+  Median: 20834424.0
+  Mean: 20544226.5
+  Variance: 2108716547360.65
+  third_moment: -4.954637534033642e+18
+Trace 10 (Label: https://www.google.com):
+  Min: 19845686
+  Max: 21859834
+  Median: 21506635.5
+  Mean: 21174201.3
+  Variance: 502651035050.61005
+  third_moment: -1.8560228033932662e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 19801459
+  Max: 21375661
+  Median: 20852343.5
+  Mean: 20713568.8
+  Variance: 332625790862.95996
+  third_moment: -7.137429510151823e+16
+Trace 10 (Label: https://www.google.com):
+  Min: 18552670
+  Max: 21785268
+  Median: 21465425.5
+  Mean: 20917667.2
+  Variance: 1031367507819.3601
+  third_moment: -1.3773553405141253e+18
+Trace 10 (Label: https://www.google.com):
+  Min: 19415498
+  Max: 21839170
+  Median: 21751147.0
+  Mean: 21326517.7
+  Variance: 684493654849.8098
+  third_moment: -8.72608409777877e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 17984858
+  Max: 21366319
+  Median: 20647828.0
+  Mean: 20310067.0
+  Variance: 875524695777.6
+  third_moment: -1.2247178640259896e+18
+Trace 10 (Label: https://www.google.com):
+  Min: 16263085
+  Max: 21765751
+  Median: 21662564.0
+  Mean: 20839328.1
+  Variance: 2944593434233.49
+  third_moment: -9.715456918182625e+18
+Trace 10 (Label: https://www.google.com):
+  Min: 18485805
+  Max: 21779776
+  Median: 21245896.0
+  Mean: 20794457.3
+  Variance: 1312621518482.0098
+  third_moment: -1.6107185285636467e+18
+Trace 10 (Label: https://www.google.com):
+  Min: 19086314
+  Max: 21783149
+  Median: 21733490.5
+  Mean: 21276084.1
+  Variance: 765808619177.69
+  third_moment: -1.1414788734631315e+18
+Trace 10 (Label: https://www.google.com):
+  Min: 16730847
+  Max: 21404089
+  Median: 20607679.0
+  Mean: 20057828.5
+  Variance: 2066264506236.45
+  third_moment: -4.0022131425403233e+18
+Trace 10 (Label: https://www.google.com):
+  Min: 19565357
+  Max: 21843854
+  Median: 20988064.0
+  Mean: 20833580.2
+  Variance: 768439612937.76
+  third_moment: -1.7677422717388205e+17
+Trace 10 (Label: https://www.google.com):
+  Min: 19970180
+  Max: 21626756
+  Median: 21446772.5
+  Mean: 21178882.8
+  Variance: 345035938424.96
+  third_moment: -2.7374320244566035e+17
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 17636659
+  Max: 21512427
+  Median: 20816530.5
+  Mean: 20444507.4
+  Variance: 1736660187903.44
+  third_moment: -2.918111908081184e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 16397850
+  Max: 21724213
+  Median: 21573071.0
+  Mean: 20694652.3
+  Variance: 2770140023705.61
+  third_moment: -7.722697821829151e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15681223
+  Max: 21685132
+  Median: 21344267.0
+  Mean: 20486862.5
+  Variance: 2939939031236.65
+  third_moment: -1.0561313970528522e+19
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 16607448
+  Max: 21483752
+  Median: 20049257.0
+  Mean: 19914712.7
+  Variance: 1551427669966.61
+  third_moment: -3.076592088153919e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15355953
+  Max: 21895120
+  Median: 21655896.5
+  Mean: 20816018.9
+  Variance: 3831906255332.089
+  third_moment: -1.6051806572860854e+19
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15829086
+  Max: 21660057
+  Median: 21372159.0
+  Mean: 20550236.3
+  Variance: 2961136658194.21
+  third_moment: -1.01115509011593e+19
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15649068
+  Max: 21626193
+  Median: 20372761.0
+  Mean: 20080465.8
+  Variance: 2674365057890.76
+  third_moment: -7.837538716149242e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 14502430
+  Max: 21739099
+  Median: 21548395.5
+  Mean: 20496764.7
+  Variance: 4658656971812.409
+  third_moment: -2.092466016385987e+19
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 16236479
+  Max: 21503051
+  Median: 20578131.0
+  Mean: 20246037.9
+  Variance: 2234642448758.49
+  third_moment: -5.93021050465858e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 17096174
+  Max: 21773908
+  Median: 20932067.5
+  Mean: 20539996.3
+  Variance: 1863724704574.61
+  third_moment: -3.6215852101704904e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 14351289
+  Max: 21791381
+  Median: 20728003.0
+  Mean: 20099446.6
+  Variance: 4542149613692.24
+  third_moment: -1.7640559036954995e+19
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15786839
+  Max: 21707063
+  Median: 21487937.5
+  Mean: 20546785.0
+  Variance: 3007994604198.0
+  third_moment: -1.0362881633933994e+19
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 16224566
+  Max: 21768264
+  Median: 21481019.5
+  Mean: 20729899.4
+  Variance: 2633720255632.04
+  third_moment: -8.775303560677728e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 14166566
+  Max: 21795102
+  Median: 21181237.5
+  Mean: 20195994.1
+  Variance: 5017556321204.089
+  third_moment: -2.1051831735927235e+19
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 16378028
+  Max: 21712302
+  Median: 21123118.5
+  Mean: 20469384.2
+  Variance: 2511492368841.7603
+  third_moment: -6.567371059238241e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 16103373
+  Max: 21882324
+  Median: 21601489.0
+  Mean: 20843007.0
+  Variance: 3083866740521.6
+  third_moment: -1.070387779861224e+19
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15627439
+  Max: 21751643
+  Median: 20640256.5
+  Mean: 20100768.6
+  Variance: 3685121662703.44
+  third_moment: -9.566726806264123e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 15267480
+  Max: 21817543
+  Median: 21686451.0
+  Mean: 20730696.6
+  Variance: 3844535976775.2397
+  third_moment: -1.5870638625509323e+19
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 16082098
+  Max: 21843710
+  Median: 21494832.5
+  Mean: 20674631.7
+  Variance: 2976824280048.81
+  third_moment: -9.29715908754606e+18
+Trace 10 (Label: https://www.youtube.com/watch?v=_jzmBEdkHdo):
+  Min: 16987659
+  Max: 21432311
+  Median: 20160285.5
+  Mean: 19931606.4
+  Variance: 1214742644364.2397
+  third_moment: -2.1537494217617894e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 16248842
+  Max: 21070556
+  Median: 20228464.0
+  Mean: 19523755.4
+  Variance: 2462628281958.4404
+  third_moment: -3.523808828376689e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 12469829
+  Max: 21256375
+  Median: 19126728.0
+  Mean: 18507907.2
+  Variance: 5738243010387.36
+  third_moment: -1.8899991591155143e+19
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 14114136
+  Max: 20694715
+  Median: 15819330.0
+  Mean: 16271437.2
+  Variance: 4422303592265.76
+  third_moment: 7.585381274386099e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 15299324
+  Max: 20735153
+  Median: 19675603.5
+  Mean: 18790786.6
+  Variance: 4207310732893.6396
+  third_moment: -6.201784489859389e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 13659827
+  Max: 20949281
+  Median: 19595985.5
+  Mean: 18809457.0
+  Variance: 5174202361542.4
+  third_moment: -1.362207172644493e+19
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 13887334
+  Max: 20854832
+  Median: 17542485.0
+  Mean: 17411269.0
+  Variance: 4438785653159.2
+  third_moment: -8.349946280478291e+17
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 12894842
+  Max: 21095668
+  Median: 19490198.5
+  Mean: 18557920.8
+  Variance: 8078797563697.359
+  third_moment: -2.5661607605704704e+19
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 14342381
+  Max: 21234482
+  Median: 19261156.5
+  Mean: 18750899.9
+  Variance: 4155842959949.689
+  third_moment: -7.500985107022607e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 13956133
+  Max: 20846103
+  Median: 18691814.5
+  Mean: 18580675.0
+  Variance: 3477803133642.2
+  third_moment: -7.809920894167387e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 12319216
+  Max: 20911946
+  Median: 18033325.0
+  Mean: 17361108.0
+  Variance: 9790503745969.6
+  third_moment: -8.854670459127978e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 14436939
+  Max: 21457717
+  Median: 20676378.0
+  Mean: 19350390.9
+  Variance: 6097290760022.689
+  third_moment: -1.58209882308006e+19
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 13865221
+  Max: 21222474
+  Median: 19682327.5
+  Mean: 18974379.2
+  Variance: 5500372793854.159
+  third_moment: -1.3726166858855105e+19
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 11270367
+  Max: 21008516
+  Median: 15103614.0
+  Mean: 16668801.4
+  Variance: 12445694387153.84
+  third_moment: 4.679701191394034e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 14349065
+  Max: 21032095
+  Median: 19792393.5
+  Mean: 18850294.9
+  Variance: 5531297774788.09
+  third_moment: -1.067339542306977e+19
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 14486519
+  Max: 21264221
+  Median: 19815584.0
+  Mean: 18828483.3
+  Variance: 5159346561257.41
+  third_moment: -9.319766738714558e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 13650924
+  Max: 20867961
+  Median: 14982050.0
+  Mean: 15854016.1
+  Variance: 6164630507540.689
+  third_moment: 1.6546520439389317e+19
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 14311027
+  Max: 21154357
+  Median: 19701102.0
+  Mean: 18767577.6
+  Variance: 5572734590277.04
+  third_moment: -1.1400116285441974e+19
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 15973843
+  Max: 21180266
+  Median: 19857347.0
+  Mean: 19174271.2
+  Variance: 3734940608221.9595
+  third_moment: -4.1848836878218824e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 13315762
+  Max: 18553678
+  Median: 15002952.5
+  Mean: 15565552.6
+  Variance: 3028618648720.44
+  third_moment: 3.2104752523116733e+18
+Trace 10 (Label: https://www.ynet.co.il):
+  Min: 13333411
+  Max: 21015489
+  Median: 19416922.0
+  Mean: 18598735.2
+  Variance: 5789598109850.76
+  third_moment: -1.6116506777780918e+19
+Trace 10 (Label: https://www.instagram.com):
+  Min: 17632135
+  Max: 21083277
+  Median: 21012096.0
+  Mean: 20376173.6
+  Variance: 1479541657146.6401
+  third_moment: -2.73735254277627e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 14101991
+  Max: 21293417
+  Median: 18904716.5
+  Mean: 18755565.8
+  Variance: 4964643148966.16
+  third_moment: -9.662864462459906e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 17488914
+  Max: 21377232
+  Median: 20924877.0
+  Mean: 20231240.7
+  Variance: 1489303466773.8098
+  third_moment: -2.2137518013472407e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 18357085
+  Max: 21469323
+  Median: 21193507.5
+  Mean: 20698204.8
+  Variance: 1093162819459.9602
+  third_moment: -1.6200292900253043e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 15543679
+  Max: 21607793
+  Median: 20227481.0
+  Mean: 19632138.2
+  Variance: 2639706420130.16
+  third_moment: -5.844529952941041e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 15693863
+  Max: 21348193
+  Median: 20715868.0
+  Mean: 19482249.3
+  Variance: 4621392423453.811
+  third_moment: -8.453835003771525e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 18281323
+  Max: 21411660
+  Median: 20990151.0
+  Mean: 20421604.0
+  Variance: 1112681360357.4
+  third_moment: -1.3853213270885548e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 18475989
+  Max: 21333413
+  Median: 21117017.5
+  Mean: 20554238.5
+  Variance: 975524307692.25
+  third_moment: -1.1574867058157706e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 13901932
+  Max: 21381031
+  Median: 19465951.5
+  Mean: 18424243.8
+  Variance: 8293876849573.959
+  third_moment: -1.020162214046038e+19
+Trace 10 (Label: https://www.instagram.com):
+  Min: 18691513
+  Max: 21424640
+  Median: 20982691.5
+  Mean: 20618306.8
+  Variance: 935778506205.5599
+  third_moment: -1.1899114401570107e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 18622354
+  Max: 21300164
+  Median: 20947049.5
+  Mean: 20535326.8
+  Variance: 937505259555.76
+  third_moment: -1.1197526284582355e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 14280996
+  Max: 21380289
+  Median: 18087458.5
+  Mean: 17928053.4
+  Variance: 6899755058009.641
+  third_moment: 3.608276894522409e+17
+Trace 10 (Label: https://www.instagram.com):
+  Min: 18752418
+  Max: 21556937
+  Median: 21091713.0
+  Mean: 20717993.5
+  Variance: 878048895136.65
+  third_moment: -9.372113956156772e+17
+Trace 10 (Label: https://www.instagram.com):
+  Min: 18829178
+  Max: 21412567
+  Median: 20818690.5
+  Mean: 20577313.1
+  Variance: 692365419841.09
+  third_moment: -5.60750759742643e+17
+Trace 10 (Label: https://www.instagram.com):
+  Min: 14216548
+  Max: 20379506
+  Median: 17756550.5
+  Mean: 17751102.5
+  Variance: 4576686933162.05
+  third_moment: -2.7793431543247427e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 18163667
+  Max: 21477140
+  Median: 20821606.5
+  Mean: 20310344.2
+  Variance: 1231683493296.36
+  third_moment: -1.135236705864123e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 17552013
+  Max: 21439816
+  Median: 20421500.5
+  Mean: 20141507.8
+  Variance: 1742128656293.96
+  third_moment: -2.6328221040552033e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 14617079
+  Max: 21102352
+  Median: 17788726.5
+  Mean: 17894210.6
+  Variance: 5344225510368.439
+  third_moment: 3.14709286671208e+17
+Trace 10 (Label: https://www.instagram.com):
+  Min: 17352672
+  Max: 21637406
+  Median: 21144500.5
+  Mean: 20563813.9
+  Variance: 1911409629092.6902
+  third_moment: -3.9730014316368783e+18
+Trace 10 (Label: https://www.instagram.com):
+  Min: 18613657
+  Max: 21236351
+  Median: 20786700.5
+  Mean: 20527616.5
+  Variance: 770985729816.05
+  third_moment: -8.882814301752819e+17
