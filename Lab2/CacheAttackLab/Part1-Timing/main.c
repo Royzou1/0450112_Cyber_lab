@@ -83,7 +83,6 @@ int main (int ac, char **av) {
     // ======
     //
     for (int i = 0 ; i < SAMPLES ; i++) {
-        printf("In sample number : %d" , i);
         int rand = random() % ((L3_SIZE) / 8);
         flush_cache(L3_SIZE/4 , (int*)eviction_buffer);
         dram_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
@@ -94,7 +93,6 @@ int main (int ac, char **av) {
     // ======
     //
     for (int i = 0; i < SAMPLES ; ++i) {
-        printf("In sample number : %d" , i);
         int rand = random() % ((L3_SIZE) / 8);
         tmp += target_buffer[rand];
         flush_cache(L1_SIZE/4 , (int*)eviction_buffer);
@@ -106,7 +104,6 @@ int main (int ac, char **av) {
     // ======
     //
     for (int i = 0; i < SAMPLES ; ++i) {
-        printf("In sample number : %d" , i);
         int rand = random() % ((L3_SIZE) / 8);
         tmp += target_buffer[rand];
         flush_cache(L2_SIZE , (int*)eviction_buffer);
