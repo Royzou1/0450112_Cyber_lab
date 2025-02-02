@@ -77,7 +77,7 @@ int main (int ac, char **av) {
         // Step 2: measure the access latency
         l1_latency[i] = measure_one_block_access_time((uint64_t)target_buffer);
     }
-
+    printf("Done L1\n");
     // ======
     // [1.2] TODO: Measure DRAM Latency, store results in dram_latency array
     // ======
@@ -87,7 +87,7 @@ int main (int ac, char **av) {
         flush_cache(L3_SIZE/4 , (int*)eviction_buffer);
         dram_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
-    
+    printf("Done Dram\n");
     // ======
     // [1.2] TODO: Measure L2 Latency, store results in l2_latency array
     // ======
@@ -95,10 +95,10 @@ int main (int ac, char **av) {
     for (int i = 0; i < SAMPLES ; ++i) {
         int rand = random() % ((2*L3_SIZE) / 8);
         tmp += target_buffer[rand];
-        
+        flush_cache(L1_SIZE/4 , (int*)eviction_buffer);
         l2_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
-
+    printf("Done L2\n");
     // ======
     // [1.2] TODO: Measure L3 Latency, store results in l3_latency array
     // ======
@@ -109,6 +109,7 @@ int main (int ac, char **av) {
         flush_cache(L2_SIZE/4 , (int*)eviction_buffer);
         l3_latency[i] = measure_one_block_access_time((uint64_t)(target_buffer + rand));
     }
+    printf("Done L3\n");
 
 
     // Print the results to the screen
