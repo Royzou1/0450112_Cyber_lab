@@ -5,6 +5,9 @@
 #include <sys/mman.h>
 #define THRESH 250
 
+static inline void mfence() {
+    asm volatile("mfence");
+}
 
 
 int main(int argc, char **argv)
