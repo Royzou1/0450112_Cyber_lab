@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
 	printf("Receiver now listening.\n");
 
-	uint64_t *target_buffer = (uint64_t*)malloc(uint8_t);
+	uint64_t *target_buffer = (uint64_t*)malloc(sizeof(uint8_t));
 	int16_t buffer = 0;
 	char data = 0;
 	int hist[256] = {0};
