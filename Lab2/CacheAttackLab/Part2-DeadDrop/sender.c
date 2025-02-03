@@ -44,8 +44,9 @@ int main(int argc, char **argv)
 {
   // Allocate a buffer using huge page
   // See the handout for details about hugepage management
-  void *buf= mmap(NULL, BUFF_SIZE, PROT_READ | PROT_WRITE, MAP_POPULATE | MAP_ANONYMOUS | MAP_PRIVATE | MAP_HUGETLB, -1, 0);
-  
+  //void *buf= mmap(NULL, BUFF_SIZE, PROT_READ | PROT_WRITE, MAP_POPULATE | MAP_ANONYMOUS | MAP_PRIVATE | MAP_HUGETLB, -1, 0);
+  uint64_t *buf = (uint64_t*)malloc(2*L3_SIZE*sizeof(uint8_t));
+
   if (buf == (void*) - 1) {
      perror("mmap() error\n");
      exit(EXIT_FAILURE);
