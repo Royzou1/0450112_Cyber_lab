@@ -11,6 +11,8 @@
 #define L2_SIZE 262144
 #define L3_SIZE 12582912
 
+int sum = 0;
+
 static inline void mfence() {
     asm volatile("mfence");
 }
@@ -29,7 +31,7 @@ void flush_cache(int size , int *all_cache) {
             all_cache[0] += all_cache[i];
         }
     }
-    fprintf(stderr, "%d" , all_cache[0]);
+    sum += all_cache[0];
 }
 
 int main(int argc, char **argv)
@@ -68,7 +70,7 @@ int main(int argc, char **argv)
       sleep(5);
       int16_t mask = 1 << i;
       if (msg & mask) {//send bit = 1
-        flush_cache(L2_SIZE , buf);
+        flush_cache(L3_SIZE/4 , (int*)buf);
         printf("sender sent '1'\n");
       }
       else {
@@ -87,6 +89,7 @@ int main(int argc, char **argv)
   }
 
   printf("Sender finished.\n");
+  printf("%d" , sum);
   return 0;
 }
 
