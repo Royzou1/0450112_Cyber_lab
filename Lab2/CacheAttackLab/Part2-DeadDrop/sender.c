@@ -59,10 +59,10 @@ int main(int argc, char **argv)
   int msg_counter = 0;
 
   bool sending = true;
-  fgets(text_buf, sizeof(text_buf), stdin);
+  //char text_buf[128];
+  //fgets(text_buf, sizeof(text_buf), stdin);
   while (sending) {
 
-      char text_buf[128];
       // TODO:
       // Put your covert channel code here
       sleep(5);
