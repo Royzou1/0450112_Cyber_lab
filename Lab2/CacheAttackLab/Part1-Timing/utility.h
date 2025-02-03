@@ -145,4 +145,33 @@ void print_results_for_python(uint64_t* dram, uint64_t* l1, uint64_t* l2, uint64
     printf("\n");
 }
 
+int sum = 0;
+static inline void mfence() {
+    asm volatile("mfence");
+}
+
+void warmUp() {
+    int tmp1 = 0;
+    for (int i = 0 ; i < 10000000 ; i++) {
+        tmp1 += rand() % 100;
+    }
+    sum += tmp1;
+}
+
+void flush_cache(int size , int *all_cache) {
+    for (int i = 1 ; i < size ; i++)
+    {
+        all_cache[i] = rand()%25;
+    }
+    int it = 10 +  rand() % 20;
+    int tmp = 0;
+    for (int i = 0 ; i < it ; i++) {
+        for (int i = 1 ; i < size ; i++)
+        {
+            mfence();
+            sum += all_cache[i];
+        }
+    }
+}
+
 #endif // _UTILITY_H__ 
