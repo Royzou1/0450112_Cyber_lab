@@ -28,9 +28,10 @@ int main(int argc, char **argv)
 	while (listening) {
 		sum += *target_buffer;
 		sleep(5);
+		mfence();
 		int time = measure_one_block_access_time((uint64_t)target_buffer);
 		printf("Time is: %d\n", time);
-		if (measure_one_block_access_time((uint64_t)target_buffer) > THRESH){
+		if (time > THRESH){
 			buffer =  buffer << 1 + 1;
 			printf("Receiver got bit = '1'\n");
 		}
