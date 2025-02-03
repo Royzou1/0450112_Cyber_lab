@@ -30,12 +30,4 @@ char *binary_to_string(char *data);
 
 int string_to_int(char* s);
 
-int sum = 0;
-static inline void mfence() ;
-
-void warmUp();
-
-void flush_cache(int size , int *all_cache) ;
-
-
 #endif
