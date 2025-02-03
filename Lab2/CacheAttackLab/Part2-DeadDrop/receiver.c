@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	printf("Please press enter.\n");
 
 	char text_buf[2];
-	fgets(text_buf, sizeof(text_buf), stdin);
+	//fgets(text_buf, sizeof(text_buf), stdin);
 
 	printf("Receiver now listening.\n");
 
@@ -29,8 +29,11 @@ int main(int argc, char **argv)
 		sleep(1);
 		if (measure_one_block_access_time((uint64_t)target_buffer) > THRESH)
 			buffer =  buffer << 1 + 1;
-		else 
+			printf("Receiver got bit = '1'\n");
+		else {
+			printf("Receiver got bit = '0'\n");
 			buffer =  buffer << 1;
+		}
 		// Put your covert channel code here
 		if (buffer >> 8 == 0xAA) {
 			hist[buffer % 256]++;
