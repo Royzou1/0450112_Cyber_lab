@@ -27,9 +27,10 @@ int main(int argc, char **argv)
 	measure_one_block_access_time((uint64_t)target_buffer);
 	while (listening) {
 		sleep(1);
-		if (measure_one_block_access_time((uint64_t)target_buffer) > THRESH)
+		if (measure_one_block_access_time((uint64_t)target_buffer) > THRESH){
 			buffer =  buffer << 1 + 1;
 			printf("Receiver got bit = '1'\n");
+		}
 		else {
 			printf("Receiver got bit = '0'\n");
 			buffer =  buffer << 1;
