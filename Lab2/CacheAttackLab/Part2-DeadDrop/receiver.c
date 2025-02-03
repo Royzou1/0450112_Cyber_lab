@@ -4,8 +4,34 @@
 // mman library to be used for hugepage allocations (e.g. mmap or posix_memalign only)
 #include <sys/mman.h>
 #define THRESH 250
+int sum = 0;
+static inline void mfence() {
+    asm volatile("mfence");
+}
 
+void warmUp() {
+    int tmp1 = 0;
+    for (int i = 0 ; i < 10000000 ; i++) {
+        tmp1 += rand() % 100;
+    }
+    sum += tmp1;
+}
 
+void flush_cache(int size , int *all_cache) {
+    for (int i = 1 ; i < size ; i++)
+    {
+        all_cache[i] = rand()%25;
+    }
+    int it = 10 +  rand() % 20;
+    int tmp = 0;
+    for (int i = 0 ; i < it ; i++) {
+        for (int i = 1 ; i < size ; i++)
+        {
+            mfence();
+            sum += all_cache[i];
+        }
+    }
+}
 
 
 int main(int argc, char **argv)
