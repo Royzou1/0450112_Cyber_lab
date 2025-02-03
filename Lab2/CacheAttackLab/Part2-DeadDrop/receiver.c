@@ -3,7 +3,7 @@
 #include <unistd.h>
 // mman library to be used for hugepage allocations (e.g. mmap or posix_memalign only)
 #include <sys/mman.h>
-#define THRESH 1000
+#define THRESH 250
 
 
 
@@ -22,11 +22,14 @@ int main(int argc, char **argv)
 	int16_t buffer = 0;
 	char data = 0;
 	int hist[256] = {0};
-
+	int sum = 0;
 	bool listening = true;
 	measure_one_block_access_time((uint64_t)target_buffer);
 	while (listening) {
-		sleep(1);
+		sum += *target_buffer;
+		sleep(5);
+		int time = measure_one_block_access_time((uint64_t)target_buffer);
+		printf("Time is: %d", time)
 		if (measure_one_block_access_time((uint64_t)target_buffer) > THRESH){
 			buffer =  buffer << 1 + 1;
 			printf("Receiver got bit = '1'\n");
@@ -45,7 +48,7 @@ int main(int argc, char **argv)
 	}
 
 	printf("Receiver finished got: %d.\n" , buffer%256);
-
+	printf(sum);
 	return 0;
 }
 
