@@ -55,7 +55,7 @@ int main(int argc, char **argv)
   char msg1;
   scanf("%c",&msg1);
   int16_t msg = msg1 + 0xAA00; //msg is BC 
-  int i = 30;
+  int i = 20;
   int msg_counter = 0;
 
   bool sending = true;
