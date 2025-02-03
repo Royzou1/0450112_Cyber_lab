@@ -52,7 +52,9 @@ int main(int argc, char **argv)
   // TODO:
   // Put your covert channel setup code here
   printf("Please type a message.\n");
-  int16_t msg = 0xAABC //msg is BC 
+  char msg1;
+  scanf("%c",&msg1);
+  int16_t msg = msg1 + 0xAA00; //msg is BC 
   int i = 30;
   int msg_counter = 0;
 
