@@ -67,10 +67,10 @@ int main(int argc, char **argv)
 
       // TODO:
       // Put your covert channel code here
-      sleep(1);
+      sleep(5);
       int16_t mask = 1 << i;
       if (msg & mask) {//send bit = 1
-        flush_cache(L3_SIZE , buf);
+        flush_cache(L2_SIZE , buf);
         printf("sender sent '1'\n");
       }
       else {
