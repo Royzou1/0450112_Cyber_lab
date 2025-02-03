@@ -72,6 +72,7 @@ int main(int argc, char **argv)
       if (i == 0) {
         msg_counter++;
         i = 30;
+        printf("msg %d sent by the sender.\n" , msg_counter);
       }
       else
         i--;
