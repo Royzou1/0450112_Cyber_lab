@@ -1,87 +1,66 @@
-
-#include"util.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
 #include <unistd.h>
-// mman library to be used for hugepage allocations (e.g. mmap or posix_memalign only)
 #include <sys/mman.h>
+#include <time.h>
+#include "util.h"
+
+#define BUFF_SIZE (2 * 12582912)
+#define L3_SIZE 12582912
 #define THRESH 250
-int sum = 0;
+#define SYNC_BYTE 0xAA
+#define MESSAGE_COUNT 20
+#define BIT_COUNT 8
+
 static inline void mfence() {
-    asm volatile("mfence");
+    asm volatile("mfence" ::: "memory");
 }
 
 void warmUp() {
-    int tmp1 = 0;
-    for (int i = 0 ; i < 10000000 ; i++) {
-        tmp1 += rand() % 100;
+    volatile int sum = 0;
+    for (int i = 0; i < 10000000; i++) {
+        sum += rand() % 100;
     }
-    sum += tmp1;
 }
 
-void flush_cache(int size , int *all_cache) {
-    for (int i = 1 ; i < size ; i++)
-    {
-        all_cache[i] = rand()%25;
+void flush_cache(int size, int *cache) {
+    for (int i = 0; i < size; i++) {
+        cache[i] = rand() % 25;
     }
-    int it = 10 +  rand() % 20;
-    int tmp = 0;
-    for (int i = 0 ; i < it ; i++) {
-        for (int i = 1 ; i < size ; i++)
-        {
-            mfence();
-            sum += all_cache[i];
+    mfence();
+}
+
+void main() {
+    int *target_buffer = malloc(sizeof(int));
+    if (!target_buffer) {
+        perror("Memory allocation failed");
+        exit(EXIT_FAILURE);
+    }
+
+    int16_t buffer = 0;
+    int hist[256] = {0};
+    printf("Receiver listening...\n");
+
+    while (true) {
+        warmUp();
+        mfence();
+        *target_buffer = measure_one_block_access_time((uint64_t)target_buffer);
+        printf("Time: %d\n", *target_buffer);
+        
+        buffer = (buffer << 1) | (*target_buffer > THRESH);
+        printf("Received bit: %d\n", buffer & 1);
+        
+        if ((buffer >> 8) == SYNC_BYTE) {
+            hist[buffer & 0xFF]++;
+            printf("Received char: %c\n", buffer & 0xFF);
         }
+
+        if (hist[buffer & 0xFF] == 3) break;
+        sleep(1);
     }
+
+    printf("Receiver finished, got: %c\n", buffer & 0xFF);
+    free(target_buffer);
 }
-
-
-int main(int argc, char **argv)
-{
-	// Put your covert channel setup code here
-
-	//printf("Please press enter.\n");
-
-	//char text_buf[2];
-	//fgets(text_buf, sizeof(text_buf), stdin);
-
-	printf("Receiver now listening.\n");
-
-	int *target_buffer = (int*)malloc(sizeof(int));
-
-	int16_t buffer = 0;
-	char data = 0;
-	int hist[256] = {0};
-
-	bool listening = true;
-	while (listening) {
-		sum += *target_buffer;
-		sleep(5);
-		warmUp();
-		mfence();
-		*target_buffer = measure_one_block_access_time((uint64_t)target_buffer);
-		printf("Time is: %d\n", *target_buffer);
-		if (*target_buffer > THRESH){
-			buffer =  (buffer << 1) + 1;
-			printf("Receiver got bit = '1'\n");
-		}
-		else {
-			printf("Receiver got bit = '0'\n");
-			buffer =  (buffer << 1);
-		}
-		// Put your covert channel code here
-
-
-		if ((buffer >> 8) == 0xAA) {
-			hist[buffer % 256]++;
-			printf("Receiver got: %d.\n" , buffer%256);
-		}
-		if (hist[buffer % 256] == 3)
-			break;
-	}
-
-	printf("Receiver finished got: %d.\n" , buffer%256);
-
-	printf("%d" , sum);
-	return 0;
-}
-
-
